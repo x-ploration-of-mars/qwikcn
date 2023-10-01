@@ -1,65 +1,19 @@
-# Qwik City App ⚡️
+> This project is in an experimental phase. Feel welcomed to hang out with us on [🔗Discord](https://discord.gg/W4e8ReQWv2) if you like the project!
 
-- [Qwik Docs](https://qwik.builder.io/)
-- [Discord](https://qwik.builder.io/chat)
-- [Qwik GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+# qwikcn
 
----
+Just like [shadcn/ui](https://github.com/shadcn-ui/ui) but for Qwik.
 
-## Project Structure
+The goal of this ~~library~~ component collection is to have the first complete, production-ready set of reusable components for Qwik applications with copy/pasting ability a la shadcn for maximum customizability.
 
-This project is using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+> As some headless libraries have a different API than their headless couterpart used by shadcn, this cannot be a 100% port. Compatibility will be set on a best-efforts basis. For example, shadcn's Form component uses react-hooks-form and zod, while qwikcn uses modular-forms and valibot. By consequence, the resulting API is a bit different, but I try to keep the base design system as close as possible.
 
-Inside your project, you'll see the following directory structure:
+> Under the hood, qwikcn uses a combination of qwik-ui's headless components, qwikify$ed shadcn components, and html elements. There aren't a lot of production ready components yet in qwik-ui, so qwikcn will adopt them as they get production ready. Until then, the most complex, non-often used shadcn headless components will be qwikify$ed, and those likely to be reused a lot will be served as html elements, even though that might mean less accessibility.
 
-```
-├── public/
-│   └── ...
-└── src/
-    ├── components/
-    │   └── ...
-    └── routes/
-        └── ...
-```
+## Contributing
 
-- `src/routes`: Provides the directory-based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
+Please read the [contributing guide](/CONTRIBUTING.md).
 
-- `src/components`: Recommended directory for components.
+## License
 
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `pnpm qwik add` command to add additional integrations. Some examples of integrations includes: Cloudflare, Netlify or Express Server, and the [Static Site Generator (SSG)](https://qwik.builder.io/qwikcity/guides/static-site-generation/).
-
-```shell
-pnpm qwik add # or `yarn qwik add`
-```
-
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). The `dev` command will server-side render (SSR) the output during development.
-
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
-
-## Preview
-
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to preview a production build locally and should not be used as a production server.
-
-```shell
-pnpm preview # or `yarn preview`
-```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. The build command will use Typescript to run a type check on the source code.
-
-```shell
-pnpm build # or `yarn build`
-```
+Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
