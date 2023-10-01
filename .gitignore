@@ -24,7 +24,6 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # Editor
-.vscode/*
 !.vscode/launch.json
 !.vscode/*.code-snippets
 
@@ -39,3 +38,10 @@ lerna-debug.log*
 # Yarn
 .yarn/*
 !.yarn/releases
+
+# Vercel
+.vercel
+
+#env
+.env
+.env.local
