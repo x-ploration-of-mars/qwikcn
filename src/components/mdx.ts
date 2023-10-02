@@ -1,8 +1,3 @@
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from "./ui/accordion";
-
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export * from "./ui/new-york/accordion";
+export * from "./ui/new-york/alert";
+export * from "./ui/new-york/tabs";

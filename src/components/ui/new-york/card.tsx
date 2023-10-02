@@ -7,7 +7,7 @@ const Card = component$<CardProps>((props) => {
     <div
       {...props}
       class={cn(
-        "rounded-lg border bg-card text-card-foreground shadow-sm",
+        "rounded-xl border bg-card text-card-foreground shadow",
         props.class
       )}
     >
@@ -30,10 +30,7 @@ const CardTitle = component$<CardTitleProps>((props) => {
   return (
     <h3
       {...props}
-      class={cn(
-        "text-2xl font-semibold leading-none tracking-tight",
-        props.class
-      )}
+      class={cn("font-semibold leading-none tracking-tight", props.class)}
     >
       <Slot />
     </h3>
@@ -61,7 +58,7 @@ const CardContent = component$<CardContentProps>((props) => {
 type CardFooterProps = QwikIntrinsicElements["div"];
 const CardFooter = component$<CardFooterProps>((props) => {
   return (
-    <div {...props} class={cn("p-6", props.class)}>
+    <div class={cn("flex items-center p-6 pt-0", props.class)} {...props}>
       <Slot />
     </div>
   );

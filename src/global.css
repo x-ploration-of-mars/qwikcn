@@ -73,10 +73,101 @@
   body {
     @apply bg-background text-foreground;
   }
-}
-
-@layer base {
   html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+}
+
+@layer components {
+  .cn-prose h1 {
+    @apply mt-2 text-4xl font-bold scroll-m-20;
+  }
+  
+  .cn-prose h2 {
+    @apply mt-12 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0 scroll-m-20;
+  }
+  
+  .cn-prose h3 {
+    @apply mt-8 text-xl font-semibold tracking-tight scroll-m-20;
+  }
+  
+  .cn-prose h4 {
+    @apply mt-8 text-lg font-semibold tracking-tight scroll-m-20;
+  }
+  
+  .cn-prose h5 {
+    @apply mt-8 text-lg font-semibold tracking-tight scroll-m-20;
+  }
+  
+  .cn-prose h6 {
+    @apply mt-8 text-base font-semibold tracking-tight scroll-m-20;
+  }
+  
+  .cn-prose a {
+    @apply font-medium underline underline-offset-4;
+  }
+  
+  .cn-prose p {
+    @apply leading-7;
+  }
+  
+  .cn-prose p:not(:first-child) {
+    @apply mt-6;
+  }
+  
+  .cn-prose ul {
+    @apply my-6 ml-6 list-disc;
+  }
+  
+  .cn-prose ol {
+    @apply my-6 ml-6 list-decimal;
+  }
+  
+  .cn-prose li {
+    @apply mt-2;
+  }
+  
+  .cn-prose blockquote {
+    @apply mt-6 border-l-2 pl-6 italic;
+  }
+  
+  .cn-prose img {
+    @apply rounded-md;
+  }
+  
+  .cn-prose hr {
+    @apply my-4 md:my-8;
+  }
+  
+  .cn-prose table {
+    @apply my-6 w-full overflow-y-auto;
+  }
+  
+  .cn-prose tr {
+    @apply m-0 border-t p-0 even:bg-muted;
+  }
+  
+  .cn-prose th {
+    @apply border px-4 py-2 text-left font-bold;
+  }
+  
+  .cn-prose th[align="center"] {
+    @apply text-center;
+  }
+  
+  .cn-prose th[align="right"] {
+    @apply text-right;
+  }
+  
+  .cn-prose td {
+    @apply border px-4 py-2 text-left;
+  }
+  
+  .cn-prose td[align="center"] {
+    @apply text-center;
+  }
+  
+  .cn-prose td[align="right"] {
+    @apply text-right;
   }
 }

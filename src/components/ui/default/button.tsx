@@ -40,8 +40,8 @@ export { buttonVariants };
 export default component$<ButtonProps>(({ variant, size, ...props }) => {
   return (
     <button
-      {...props}
       class={cn(buttonVariants({ variant, size }), props.class)}
+      {...props}
     >
       <Slot />
     </button>

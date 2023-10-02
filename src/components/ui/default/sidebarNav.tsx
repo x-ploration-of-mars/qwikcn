@@ -18,7 +18,7 @@ const cardVariants = cva(
 export const SidebarNav = component$<SidebarNavProps>(({ items, ...props }) => {
   const location = useLocation();
   return (
-    <nav {...props} class={cardVariants({ class: props.class })}>
+    <nav class={cardVariants({ class: props.class })} {...props}>
       {items.map((item) => (
         <Link
           prefetch
