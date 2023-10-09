@@ -1,4 +1,4 @@
-import { useSignalWithStorage } from "./useSignalWithStorage";
+import { useSignalWithStorage } from "./use-signal-with-storage";
 
 import { Style } from "~/registry/styles";
 import { Theme } from "~/registry/themes";

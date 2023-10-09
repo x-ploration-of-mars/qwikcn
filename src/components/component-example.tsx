@@ -6,10 +6,8 @@ import {
 } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 import { Tab, TabList, TabPanel, Tabs } from "~/registry/new-york/ui/tabs";
-import {
-  CopyButtonQwikified,
-  CopyWithClassNamesQwikified,
-} from "./copy-button";
+import { CopyButton } from "./copy-button";
+import { CopyWithClassNamesQwikified } from "./copy-with-classnames";
 
 type ComponentExampleProps = QwikIntrinsicElements["div"] & {
   extractedClassNames?: string;
@@ -54,9 +52,9 @@ const ComponentExample = component$(
               />
             ) : (
               codeString.value && (
-                <CopyButtonQwikified
+                <CopyButton
                   value={codeString.value}
-                  className="absolute right-4 top-20"
+                  class="absolute right-4 top-20"
                 />
               )
             )}

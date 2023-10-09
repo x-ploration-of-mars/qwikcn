@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { useConfig } from "~/hooks/useConfig";
+import { useConfig } from "~/hooks/use-config";
 
 export default component$(() => {
   const config = useConfig();
