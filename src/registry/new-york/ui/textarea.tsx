@@ -5,7 +5,7 @@ type TextareaProps = Omit<QwikIntrinsicElements["textarea"], "children"> & {
   error: string;
 };
 
-export default component$<TextareaProps>(({ name, error, ...props }) => {
+const Textarea = component$<TextareaProps>(({ name, error, ...props }) => {
   return (
     <>
       <textarea
@@ -19,3 +19,5 @@ export default component$<TextareaProps>(({ name, error, ...props }) => {
     </>
   );
 });
+
+export { Textarea };

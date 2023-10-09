@@ -25,6 +25,6 @@ const Progress = React.forwardRef<
 ));
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
-const QProgress = qwikify$(Progress);
+const ProgressQwikified = qwikify$(Progress);
 
-export { QProgress };
+export { ProgressQwikified };

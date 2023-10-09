@@ -33,7 +33,7 @@ module.exports = {
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-unused-vars": ["error"],
-    "@typescript-eslint/consistent-type-imports": "warn",
+    "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "no-console": "off",
     "no-case-declarations": "off",

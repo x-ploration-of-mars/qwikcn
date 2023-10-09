@@ -1,7 +1,7 @@
 import { type QwikIntrinsicElements, component$ } from "@builder.io/qwik";
 import { Link, useLocation } from "@builder.io/qwik-city";
 import { cva } from "class-variance-authority";
-import { buttonVariants } from "./button";
+import { buttonVariants } from "../registry/new-york/ui/button";
 import { cn } from "~/lib/utils";
 
 type SidebarNavProps = QwikIntrinsicElements["nav"] & {

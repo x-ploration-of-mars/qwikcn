@@ -7,6 +7,7 @@ import {
 import { RouterHead } from "./components/router-head/router-head";
 
 import "./global.css";
+import { QwikPartytown } from "./components/partytown/partytown";
 
 export default component$(() => {
   /**
@@ -21,6 +22,23 @@ export default component$(() => {
       <head>
         <meta charSet="utf-8" />
         <link rel="manifest" href="/manifest.json" />
+        <QwikPartytown forward={["gtag", "dataLayer.push"]} />
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={`
+                    window.dataLayer = window.dataLayer || [];
+                    window.gtag = function() {
+                    dataLayer.push(arguments);
+                    }
+                    gtag("js", new Date());
+                    gtag("config", "G-4TFVLJYR3G");
+                    `}
+        />
+        <script
+          async
+          type="text/partytown"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-4TFVLJYR3G`}
+        />
         <RouterHead />
       </head>
       <body lang="en">

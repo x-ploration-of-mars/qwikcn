@@ -1,4 +1,4 @@
-import { component$, Slot } from "@builder.io/qwik";
+import { component$, Slot, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import type { RequestHandler } from "@builder.io/qwik-city";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
@@ -13,6 +13,18 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
+  const documentReady = useSignal(false);
+
+  useVisibleTask$(
+    () => {
+      documentReady.value = true;
+    },
+    { strategy: "document-idle" }
+  );
+
+  if (!documentReady.value) {
+    return null;
+  }
   return (
     <div class="m-8">
       <article class="cn-prose max-w-6xl">

@@ -1,7 +1,5 @@
 import { component$, Slot } from "@builder.io/qwik";
 
-import { cn } from "~/lib/utils";
-
 import {
   AccordionRoot as QwikUIAccordionRoot,
   AccordionItem as QwikUIAccordionItem,
@@ -12,6 +10,8 @@ import {
   type AccordionTriggerProps,
   type AccordionHeaderProps,
 } from "@qwik-ui/headless";
+
+import { cn } from "~/lib/utils";
 
 import { LuChevronDown } from "@qwikest/icons/lucide";
 
@@ -28,7 +28,7 @@ const AccordionItem = component$<AccordionItemProps>((props) => {
 // AccordionHeader will render as an h3 element by default, which can be problematic with markdown cn-prose styles
 const AccordionHeader = component$<AccordionHeaderProps>((props) => {
   return (
-    <QwikUIAccordionHeader class="flex" {...props}>
+    <QwikUIAccordionHeader class={cn("flex", props.class)} {...props}>
       <Slot />
     </QwikUIAccordionHeader>
   );

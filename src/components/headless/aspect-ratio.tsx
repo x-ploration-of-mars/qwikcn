@@ -1,7 +1,7 @@
 import {
-  type QwikIntrinsicElements,
+  QwikIntrinsicElements,
+  CSSProperties,
   component$,
-  type CSSProperties,
   Slot,
 } from "@builder.io/qwik";
 

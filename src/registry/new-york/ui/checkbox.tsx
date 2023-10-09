@@ -3,7 +3,7 @@ import { cn } from "~/lib/utils";
 
 type CheckboxProps = Omit<QwikIntrinsicElements["input"], "children">;
 
-export default component$<CheckboxProps>(({ name, ...props }) => {
+const Checkbox = component$<CheckboxProps>(({ name, ...props }) => {
   return (
     <div>
       <input
@@ -19,3 +19,5 @@ export default component$<CheckboxProps>(({ name, ...props }) => {
     </div>
   );
 });
+
+export { Checkbox };

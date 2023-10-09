@@ -9,10 +9,12 @@ const labelVariants = cva(
 type LabelProps = QwikIntrinsicElements["label"] &
   VariantProps<typeof labelVariants>;
 
-export default component$<LabelProps>((props) => {
+const Label = component$<LabelProps>((props) => {
   return (
     <label class={cn(labelVariants(), props.class)} {...props}>
       <Slot />
     </label>
   );
 });
+
+export { Label };

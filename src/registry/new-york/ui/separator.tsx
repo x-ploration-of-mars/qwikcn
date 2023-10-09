@@ -6,7 +6,7 @@ import {
 } from "@qwik-ui/headless";
 import { cn } from "~/lib/utils";
 
-export const Separator = component$<SeparatorProps>(
+const Separator = component$<SeparatorProps>(
   ({ orientation = "horizontal", decorative = true, ...props }) => {
     return (
       <>
@@ -24,3 +24,5 @@ export const Separator = component$<SeparatorProps>(
     );
   }
 );
+
+export { Separator };

@@ -35,9 +35,7 @@ const buttonVariants = cva(
   }
 );
 
-export { buttonVariants };
-
-export default component$<ButtonProps>(({ variant, size, ...props }) => {
+const Button = component$<ButtonProps>(({ variant, size, ...props }) => {
   return (
     <button
       class={cn(buttonVariants({ variant, size }), props.class)}
@@ -47,3 +45,5 @@ export default component$<ButtonProps>(({ variant, size, ...props }) => {
     </button>
   );
 });
+
+export { Button, buttonVariants };

@@ -5,7 +5,7 @@ type InputProps = Omit<QwikIntrinsicElements["input"], "children"> & {
   error: string;
 };
 
-export default component$<InputProps>(({ name, error, ...props }) => {
+const Input = component$<InputProps>(({ name, error, ...props }) => {
   return (
     <div>
       <input
@@ -27,3 +27,5 @@ export default component$<InputProps>(({ name, error, ...props }) => {
     </div>
   );
 });
+
+export { Input };
