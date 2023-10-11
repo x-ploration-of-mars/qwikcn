@@ -19,16 +19,8 @@
     "types": ["node", "vite/client"],
     "paths": {
       "~/*": ["./src/*"]
-    },
-    "composite": false,
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSources": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
+    }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src", "./*.d.ts", "./*.ts"],
-  "exclude": ["node_modules", "src/scripts/build-registry.ts"]
+  "include": ["src", "./*.d.ts", "./*.config.ts"]
 }

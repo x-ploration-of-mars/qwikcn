@@ -12,7 +12,7 @@ interface CalloutProps {
   children?: React.ReactNode;
 }
 
-export const callout = component$(({ title, icon, ...props }: CalloutProps) => {
+export const Callout = component$(({ title, icon, ...props }: CalloutProps) => {
   return (
     <Alert {...props}>
       {icon && <span class="mr-4 text-2xl">{icon}</span>}
