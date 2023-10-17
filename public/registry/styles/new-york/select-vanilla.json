@@ -1,0 +1,13 @@
+{
+  "name": "select-vanilla",
+  "dependencies": [
+    "@radix-ui/react-select"
+  ],
+  "files": [
+    {
+      "name": "select-vanilla.tsx",
+      "content": "import { cn } from \"~/lib/utils\";\nimport { QwikIntrinsicElements, Slot, component$ } from \"@builder.io/qwik\";\nimport { LuFilter } from \"@qwikest/icons/lucide\";\n\ntype SelectProps = QwikIntrinsicElements[\"select\"];\nconst Select = component$<SelectProps>(({ ...props }) => (\n  <select {...props}>\n    <Slot />\n  </select>\n));\n\ntype SelectGroupProps = QwikIntrinsicElements[\"optgroup\"];\nconst SelectGroup = component$<SelectGroupProps>(({ ...props }) => (\n  <optgroup {...props}>\n    <Slot />\n  </optgroup>\n));\n\ntype SelectValueProps = QwikIntrinsicElements[\"option\"];\nconst SelectValue = component$<SelectValueProps>(({ children, ...props }) => (\n  <option {...props}>{children}</option>\n));\n\ntype SelectTriggerProps = QwikIntrinsicElements[\"div\"];\nconst SelectTrigger = component$<SelectTriggerProps>(({ ...props }) => (\n  <div class={cn(\"tailwind classes\", props.class)} {...props}>\n    <Slot />\n    <LuFilter class=\"h-4 w-4 opacity-50\" />\n  </div>\n));\n\ntype SelectContentProps = QwikIntrinsicElements[\"div\"];\nconst SelectContent = component$<SelectContentProps>(({ ...props }) => (\n  <div class={cn(\"tailwind classes\", props.class)} {...props}>\n    <Slot />\n  </div>\n));\n\ntype SelectLabelProps = QwikIntrinsicElements[\"label\"];\nconst SelectLabel = component$<SelectLabelProps>(({ ...props }) => (\n  <label\n    class={cn(\"px-2 py-1.5 text-sm font-semibold\", props.class)}\n    {...props}\n  />\n));\n\ntype SelectItemProps = QwikIntrinsicElements[\"option\"];\nconst SelectItem = component$<SelectItemProps>(({ children, ...props }) => (\n  <option class={cn(\"tailwind classes\", props.class)} {...props}>\n    {children}\n  </option>\n));\n\ntype SelectSeparatorProps = Omit<QwikIntrinsicElements[\"hr\"], \"children\">;\nconst SelectSeparator = component$<SelectSeparatorProps>(({ ...props }) => (\n  <hr class={cn(\"-mx-1 my-1 h-px bg-muted\", props.class)} {...props} />\n));\n\nexport {\n  Select,\n  SelectGroup,\n  SelectValue,\n  SelectTrigger,\n  SelectContent,\n  SelectLabel,\n  SelectItem,\n  SelectSeparator,\n};\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -5,13 +5,13 @@ import { CheckIcon, CopyIcon } from "@radix-ui/react-icons";
 import { NpmCommands } from "~/types/unist";
 
 import { cn } from "~/lib/utils";
-import { Button } from "~/registry/new-york/ui/react/button";
+import { Button } from "~/registry/new-york/ui/button-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "~/registry/new-york/ui/react/dropdown-menu";
+} from "~/registry/new-york/ui/dropdown-menu-react";
 import { qwikify$ } from "@builder.io/qwik-react";
 import { copyToClipboardWithMeta } from "./copy-button";
 

@@ -3,11 +3,15 @@ title: components.json
 description: Configuration for your project.
 ---
 
+import { Link } from "@builder.io/qwik-city";
+
+import { Callout, ComponentPreview } from "~/components/mdx-components";
+
 The `components.json` file holds configuration for your project.
 
 We use it to understand how your project is set up and how to generate components customized for your project.
 
-<Callout className="mt-6">
+<Callout class="mt-6">
   Note: The `components.json` file is optional and **only required if you're
   using the CLI** to add components to your project. If you're using the copy
   and paste method, you don't need this file.
@@ -133,7 +137,7 @@ The CLI uses these values and the `paths` config from your `tsconfig.json` or `j
 
 Path aliases have to be set up in your `tsconfig.json` or `jsconfig.json` file.
 
-<Callout className="mt-6">
+<Callout class="mt-6">
   **Important:** If you're using the `src` directory, make sure it is included
   under `paths` in your `tsconfig.json` or `jsconfig.json` file.
 </Callout>

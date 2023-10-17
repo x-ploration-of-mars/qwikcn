@@ -25,7 +25,7 @@
       "button"
     ],
     "files": [
-      "ui/alert-dialog.tsx"
+      "ui/alert-dialog-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -45,7 +45,7 @@
       "@radix-ui/react-avatar"
     ],
     "files": [
-      "ui/avatar.tsx"
+      "ui/avatar-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -76,7 +76,7 @@
       "button"
     ],
     "files": [
-      "ui/calendar.tsx"
+      "ui/calendar-qwikified.tsx"
     ],
     "type": "components:ui"
   },
@@ -116,7 +116,7 @@
       "dialog"
     ],
     "files": [
-      "ui/command.tsx"
+      "ui/command-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -126,7 +126,7 @@
       "@radix-ui/react-context-menu"
     ],
     "files": [
-      "ui/context-menu.tsx"
+      "ui/context-menu-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -136,7 +136,7 @@
       "@radix-ui/react-dialog"
     ],
     "files": [
-      "ui/dialog.tsx"
+      "ui/dialog-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -146,25 +146,7 @@
       "@radix-ui/react-dropdown-menu"
     ],
     "files": [
-      "ui/dropdown-menu.tsx"
-    ],
-    "type": "components:ui"
-  },
-  {
-    "name": "form",
-    "dependencies": [
-      "@radix-ui/react-label",
-      "@radix-ui/react-slot",
-      "@hookform/resolvers",
-      "zod",
-      "react-hook-form"
-    ],
-    "registryDependencies": [
-      "button",
-      "label"
-    ],
-    "files": [
-      "ui/form.tsx"
+      "ui/dropdown-menu-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -174,7 +156,7 @@
       "@radix-ui/react-hover-card"
     ],
     "files": [
-      "ui/hover-card.tsx"
+      "ui/hover-card-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -201,7 +183,7 @@
       "@radix-ui/react-menubar"
     ],
     "files": [
-      "ui/menubar.tsx"
+      "ui/menubar-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -211,7 +193,7 @@
       "@radix-ui/react-navigation-menu"
     ],
     "files": [
-      "ui/navigation-menu.tsx"
+      "ui/navigation-menu-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -221,7 +203,7 @@
       "@radix-ui/react-popover"
     ],
     "files": [
-      "ui/popover.tsx"
+      "ui/popover-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -231,7 +213,7 @@
       "@radix-ui/react-progress"
     ],
     "files": [
-      "ui/progress.tsx"
+      "ui/progress-qwikified.tsx"
     ],
     "type": "components:ui"
   },
@@ -241,7 +223,7 @@
       "@radix-ui/react-radio-group"
     ],
     "files": [
-      "ui/radio-group.tsx"
+      "ui/radio-group-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -251,7 +233,7 @@
       "@radix-ui/react-scroll-area"
     ],
     "files": [
-      "ui/scroll-area.tsx"
+      "ui/scroll-area-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -261,7 +243,7 @@
       "@radix-ui/react-select"
     ],
     "files": [
-      "ui/select.tsx"
+      "ui/select-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -281,7 +263,7 @@
       "@radix-ui/react-dialog"
     ],
     "files": [
-      "ui/sheet.tsx"
+      "ui/sheet-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -298,7 +280,7 @@
       "@radix-ui/react-slider"
     ],
     "files": [
-      "ui/slider.tsx"
+      "ui/slider-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -308,14 +290,14 @@
       "@radix-ui/react-switch"
     ],
     "files": [
-      "ui/switch.tsx"
+      "ui/switch-vanilla.tsx"
     ],
     "type": "components:ui"
   },
   {
     "name": "table",
     "files": [
-      "ui/table.tsx"
+      "ui/table-react.tsx"
     ],
     "type": "components:ui"
   },
@@ -342,9 +324,9 @@
       "@radix-ui/react-toast"
     ],
     "files": [
-      "ui/toast.tsx",
-      "ui/use-toast.ts",
-      "ui/toaster.tsx"
+      "ui/toast-react.tsx",
+      "ui/use-toast-react.ts",
+      "ui/toaster-qwikified.tsx"
     ],
     "type": "components:ui"
   },
@@ -354,7 +336,7 @@
       "@radix-ui/react-toggle"
     ],
     "files": [
-      "ui/toggle.tsx"
+      "ui/toggle-vanilla.tsx"
     ],
     "type": "components:ui"
   },
@@ -364,7 +346,7 @@
       "@radix-ui/react-tooltip"
     ],
     "files": [
-      "ui/tooltip.tsx"
+      "ui/tooltip-react.tsx"
     ],
     "type": "components:ui"
   }

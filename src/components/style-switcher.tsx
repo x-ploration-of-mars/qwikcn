@@ -6,7 +6,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "~/registry/new-york/ui/select";
+} from "~/registry/new-york/ui/select-vanilla";
 import { Style, styles } from "~/registry/styles";
 import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
 

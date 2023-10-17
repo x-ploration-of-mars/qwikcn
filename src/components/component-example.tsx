@@ -7,19 +7,15 @@ import {
 import { cn } from "~/lib/utils";
 import { Tab, TabList, TabPanel, Tabs } from "~/registry/new-york/ui/tabs";
 import { CopyButton } from "./copy-button";
-import { CopyWithClassNamesQwikified } from "./copy-with-classnames";
+import { CopyWithClassNamesQwikified } from "./copy-with-classnames-qwikified";
 
 type ComponentExampleProps = QwikIntrinsicElements["div"] & {
-  extractedClassNames?: string;
+  extractedClasses?: string;
   align?: "center" | "start" | "end";
 };
 
 const ComponentExample = component$(
-  ({
-    extractedClassNames,
-    align = "center",
-    ...props
-  }: ComponentExampleProps) => {
+  ({ extractedClasses, align = "center", ...props }: ComponentExampleProps) => {
     const codeSlotContainerRef = useSignal<HTMLDivElement>();
     console.log("codeSlotContainerRef", codeSlotContainerRef.value?.innerHTML);
     const codeString = useSignal(codeSlotContainerRef.value?.innerHTML || "");
@@ -44,11 +40,10 @@ const ComponentExample = component$(
                 Code
               </Tab>
             </TabList>
-            {extractedClassNames ? (
+            {extractedClasses ? (
               <CopyWithClassNamesQwikified
                 value={codeString.value}
-                classNames={extractedClassNames}
-                className="absolute right-4 top-20"
+                extractedClasses={extractedClasses}
               />
             ) : (
               codeString.value && (

@@ -6,7 +6,7 @@
   "files": [
     {
       "name": "collapsible.tsx",
-      "content": "\"use client\"\n\nimport * as CollapsiblePrimitive from \"@radix-ui/react-collapsible\"\n\nconst Collapsible = CollapsiblePrimitive.Root\n\nconst CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger\n\nconst CollapsibleContent = CollapsiblePrimitive.CollapsibleContent\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent }\n"
+      "content": "import { QwikIntrinsicElements, Slot, component$ } from \"@builder.io/qwik\";\n\nconst Collapsible = component$<QwikIntrinsicElements[\"details\"]>(\n  ({ ...props }) => {\n    return (\n      <details {...props}>\n        <Slot />\n      </details>\n    );\n  }\n);\n\nconst CollapsibleTrigger = component$<QwikIntrinsicElements[\"summary\"]>(\n  ({ ...props }) => {\n    return (\n      <summary {...props}>\n        <Slot />\n      </summary>\n    );\n  }\n);\n\nconst CollapsibleContent = component$<QwikIntrinsicElements[\"div\"]>(\n  ({ ...props }) => {\n    return (\n      <div {...props}>\n        <Slot />\n      </div>\n    );\n  }\n);\n\nexport { Collapsible, CollapsibleTrigger, CollapsibleContent };\n"
     }
   ],
   "type": "components:ui"

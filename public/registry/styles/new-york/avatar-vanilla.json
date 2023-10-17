@@ -1,0 +1,13 @@
+{
+  "name": "avatar-vanilla",
+  "dependencies": [
+    "@radix-ui/react-avatar"
+  ],
+  "files": [
+    {
+      "name": "avatar-vanilla.tsx",
+      "content": "import { QwikIntrinsicElements, Slot, component$ } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\nconst Avatar = component$<QwikIntrinsicElements[\"div\"]>(({ ...props }) => {\n  return (\n    <div\n      class={cn(\n        \"relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full\",\n        props.class\n      )}\n      {...props}\n    >\n      <Slot />\n    </div>\n  );\n});\n\nconst AvatarImage = component$<Omit<QwikIntrinsicElements[\"img\"], \"children\">>(\n  ({ ...props }) => (\n    <img class={cn(\"aspect-square h-full w-full\", props.class)} {...props} />\n  )\n);\n\nconst AvatarFallback = component$<QwikIntrinsicElements[\"div\"]>(\n  ({ ...props }) => {\n    return (\n      <div\n        class={cn(\n          \"flex h-full w-full items-center justify-center rounded-full bg-muted\",\n          props.class\n        )}\n        {...props}\n      >\n        <Slot />\n      </div>\n    );\n  }\n);\n\nexport { Avatar, AvatarImage, AvatarFallback };\n"
+    }
+  ],
+  "type": "components:ui"
+}

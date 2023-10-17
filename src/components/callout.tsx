@@ -1,4 +1,4 @@
-import { Slot, component$ } from "@builder.io/qwik";
+import { PropsOf, Slot, component$ } from "@builder.io/qwik";
 
 import {
   Alert,
@@ -6,20 +6,20 @@ import {
   AlertTitle,
 } from "~/registry/new-york/ui/alert";
 
-interface CalloutProps {
+type CalloutProps = PropsOf<typeof Alert> & {
   icon?: string;
-  title?: string;
-  children?: React.ReactNode;
-}
+};
 
-export const Callout = component$(({ title, icon, ...props }: CalloutProps) => {
+export const Callout = component$<CalloutProps>(({ title, icon, ...props }) => {
   return (
-    <Alert {...props}>
-      {icon && <span class="mr-4 text-2xl">{icon}</span>}
-      {title && <AlertTitle>{title}</AlertTitle>}
-      <AlertDescription>
-        <Slot />
-      </AlertDescription>
-    </Alert>
+    <div {...props}>
+      <Alert>
+        {icon && <span class="mr-4 text-2xl">{icon}</span>}
+        {title && <AlertTitle>{title}</AlertTitle>}
+        <AlertDescription>
+          <Slot />
+        </AlertDescription>
+      </Alert>
+    </div>
   );
 });

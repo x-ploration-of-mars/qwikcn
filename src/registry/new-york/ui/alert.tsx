@@ -1,4 +1,4 @@
-import { component$, type QwikIntrinsicElements } from "@builder.io/qwik";
+import { component$, Slot, type QwikIntrinsicElements } from "@builder.io/qwik";
 
 import { cva, type VariantProps } from "class-variance-authority";
 
@@ -28,21 +28,31 @@ const Alert = component$<AlertProps>(({ variant, ...props }) => {
       role="alert"
       class={cn(alertVariants({ variant }), props.class)}
       {...props}
-    />
+    >
+      <Slot />
+    </div>
   );
 });
 
-type AlertTitleProps = QwikIntrinsicElements["h5"];
-const AlertTitle = component$<AlertTitleProps>(({ ...props }) => (
-  <h5
-    class={cn("mb-1 font-medium leading-none tracking-tight", props.class)}
-    {...props}
-  />
-));
+const AlertTitle = component$<QwikIntrinsicElements["h5"]>(({ ...props }) => {
+  return (
+    <h5
+      class={cn("mb-1 font-medium leading-none tracking-tight", props.class)}
+      {...props}
+    >
+      <Slot />
+    </h5>
+  );
+});
 
-type AlertDescriptionProps = QwikIntrinsicElements["div"];
-const AlertDescription = component$<AlertDescriptionProps>(({ ...props }) => (
-  <div class={cn("text-sm [&_p]:leading-relaxed", props.class)} {...props} />
-));
+const AlertDescription = component$<QwikIntrinsicElements["div"]>(
+  ({ ...props }) => {
+    return (
+      <div class={cn("text-sm [&_p]:leading-relaxed", props.class)} {...props}>
+        <Slot />
+      </div>
+    );
+  }
+);
 
 export { Alert, AlertTitle, AlertDescription };
