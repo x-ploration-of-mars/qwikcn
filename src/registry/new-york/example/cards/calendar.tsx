@@ -1,5 +1,3 @@
-"use client";
-
 import { component$ } from "@builder.io/qwik";
 import { addDays } from "date-fns";
 

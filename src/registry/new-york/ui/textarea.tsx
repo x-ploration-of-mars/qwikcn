@@ -2,7 +2,7 @@ import { component$, type QwikIntrinsicElements } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 
 type TextareaProps = Omit<QwikIntrinsicElements["textarea"], "children"> & {
-  error: string;
+  error?: string;
 };
 
 const Textarea = component$<TextareaProps>(({ name, error, ...props }) => {

@@ -1,11 +1,12 @@
-import { ChevronRightIcon } from "@radix-ui/react-icons"
+import { component$ } from "@builder.io/qwik";
+import { LuChevronRight } from "@qwikest/icons/lucide";
 
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "~/registry/new-york/ui/button";
 
-export default function ButtonIcon() {
+export default component$(() => {
   return (
     <Button variant="outline" size="icon">
-      <ChevronRightIcon className="h-4 w-4" />
+      <LuChevronRight class="h-4 w-4" />
     </Button>
-  )
-}
+  );
+});

@@ -6,7 +6,7 @@ const RadioGroup = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
 });
 
 const RadioGroupItem = component$<
-  Omit<QwikIntrinsicElements["div"], "children">
+  Omit<QwikIntrinsicElements["radio"], "children">
 >(({ ...props }) => {
   return (
     <div

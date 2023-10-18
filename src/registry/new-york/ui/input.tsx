@@ -2,7 +2,7 @@ import { component$, type QwikIntrinsicElements } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 
 type InputProps = Omit<QwikIntrinsicElements["input"], "children"> & {
-  error: string;
+  error?: string;
 };
 
 const Input = component$<InputProps>(({ name, error, ...props }) => {

@@ -1,5 +1,6 @@
-import { Button } from "@/registry/new-york/ui/button"
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/registry/new-york/ui/button";
 
-export default function ButtonGhost() {
-  return <Button variant="ghost">Ghost</Button>
-}
+export default component$(() => {
+  return <Button variant="ghost">Ghost</Button>;
+});

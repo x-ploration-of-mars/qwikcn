@@ -1,6 +1,5 @@
-"use client"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/registry/new-york/ui/button";
 import {
   Card,
   CardContent,
@@ -8,42 +7,42 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york/ui/card"
-import { Label } from "@/registry/new-york/ui/label"
-import { Switch } from "@/registry/new-york/ui/switch"
+} from "~/registry/new-york/ui/card";
+import { Label } from "~/registry/new-york/ui/label";
+import { Switch } from "~/registry/new-york/ui/switch-vanilla";
 
-export function CardsCookieSettings() {
+export const CardsCookieSettings = component$(() => {
   return (
     <Card>
       <CardHeader>
         <CardTitle>Cookie Settings</CardTitle>
         <CardDescription>Manage your cookie settings here.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6">
-        <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="necessary" className="flex flex-col space-y-1">
+      <CardContent class="grid gap-6">
+        <div class="flex items-center justify-between space-x-4">
+          <Label for="necessary" class="flex flex-col space-y-1">
             <span>Strictly Necessary</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span class="text-xs font-normal leading-snug text-muted-foreground">
               These cookies are essential in order to use the website and use
               its features.
             </span>
           </Label>
           <Switch id="necessary" defaultChecked aria-label="Necessary" />
         </div>
-        <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="functional" className="flex flex-col space-y-1">
+        <div class="flex items-center justify-between space-x-4">
+          <Label for="functional" class="flex flex-col space-y-1">
             <span>Functional Cookies</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span class="text-xs font-normal leading-snug text-muted-foreground">
               These cookies allow the website to provide personalized
               functionality.
             </span>
           </Label>
           <Switch id="functional" aria-label="Functional" />
         </div>
-        <div className="flex items-center justify-between space-x-4">
-          <Label htmlFor="performance" className="flex flex-col space-y-1">
+        <div class="flex items-center justify-between space-x-4">
+          <Label for="performance" class="flex flex-col space-y-1">
             <span>Performance Cookies</span>
-            <span className="text-xs font-normal leading-snug text-muted-foreground">
+            <span class="text-xs font-normal leading-snug text-muted-foreground">
               These cookies help to improve the performance of the website.
             </span>
           </Label>
@@ -51,10 +50,10 @@ export function CardsCookieSettings() {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" className="w-full">
+        <Button variant="outline" class="w-full">
           Save preferences
         </Button>
       </CardFooter>
     </Card>
-  )
-}
+  );
+});

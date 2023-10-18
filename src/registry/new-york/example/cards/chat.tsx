@@ -33,7 +33,7 @@ import {
   TooltipContent,
   TooltipProvider,
   TooltipTrigger,
-} from "~/registry/new-york/ui/tooltip";
+} from "~/registry/new-york/ui/tooltip-react";
 import { component$, useSignal } from "@builder.io/qwik";
 import { LuCheck, LuPlane, LuPlus } from "@qwikest/icons/lucide";
 
@@ -165,7 +165,6 @@ export const CardsChat = component$(() => {
               onChange$={(e, currentTarget) =>
                 (input.value = currentTarget.value)
               }
-              error=""
             />
             <Button type="submit" size="icon" disabled={inputLength === 0}>
               <LuPlane class="h-4 w-4" />

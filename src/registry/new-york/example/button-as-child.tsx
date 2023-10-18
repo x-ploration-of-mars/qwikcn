@@ -1,11 +1,11 @@
-import Link from "next/link"
+import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
+import { Button } from "~/registry/new-york/ui/button";
 
-import { Button } from "@/registry/new-york/ui/button"
-
-export default function ButtonAsChild() {
+export default component$(() => {
   return (
-    <Button asChild>
+    <Button>
       <Link href="/login">Login</Link>
     </Button>
-  )
-}
+  );
+});

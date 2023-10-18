@@ -1,18 +1,16 @@
-"use client"
+import { component$, useSignal } from "@builder.io/qwik";
+import { Calendar } from "~/registry/new-york/ui/calendar-qwikified";
 
-import * as React from "react"
-
-import { Calendar } from "@/registry/new-york/ui/calendar"
-
-export default function CalendarDemo() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date())
-
+export default component$(() => {
+  const date = useSignal<Date | undefined>(new Date());
   return (
     <Calendar
       mode="single"
-      selected={date}
-      onSelect={setDate}
+      selected={date.value}
+      onSelect$={() => {
+        date.value = new Date();
+      }}
       className="rounded-md border shadow"
     />
-  )
-}
+  );
+});

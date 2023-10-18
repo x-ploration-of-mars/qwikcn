@@ -1,5 +1,6 @@
-import { Badge } from "@/registry/new-york/ui/badge"
+import { component$ } from "@builder.io/qwik";
+import { Badge } from "~/registry/new-york/ui/badge";
 
-export default function BadgeSecondary() {
-  return <Badge variant="secondary">Secondary</Badge>
-}
+export default component$(() => {
+  return <Badge variant="secondary">Secondary</Badge>;
+});

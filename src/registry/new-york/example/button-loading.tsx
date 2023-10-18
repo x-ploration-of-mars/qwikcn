@@ -1,12 +1,13 @@
-import { ReloadIcon } from "@radix-ui/react-icons"
+import { component$ } from "@builder.io/qwik";
+import { LuRotateCw } from "@qwikest/icons/lucide";
 
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "~/registry/new-york/ui/button";
 
-export default function ButtonLoading() {
+export default component$(() => {
   return (
     <Button disabled>
-      <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+      <LuRotateCw class="mr-2 h-4 w-4 animate-spin" />
       Please wait
     </Button>
-  )
-}
+  );
+});
