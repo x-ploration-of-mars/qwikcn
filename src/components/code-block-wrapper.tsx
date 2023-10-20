@@ -11,7 +11,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "~/registry/new-york/ui/collapsible";
+} from "~/registry/new-york/ui/collapsible-vanilla";
 
 type CodeBlockProps = QwikIntrinsicElements["details"] & {
   expandButtonTitle?: string;

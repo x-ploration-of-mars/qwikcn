@@ -3,7 +3,7 @@ import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "~/registry/new-york/ui/collapsible";
+} from "~/registry/new-york/ui/collapsible-vanilla";
 import { component$, useSignal } from "@builder.io/qwik";
 import { LuChevronsUpDown } from "@qwikest/icons/lucide";
 

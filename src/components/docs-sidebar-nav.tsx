@@ -44,6 +44,7 @@ export function DocsSidebarNavItems({
       {items.map((item, index) =>
         item.href && !item.disabled ? (
           <Link
+            prefetch
             key={index}
             href={item.href}
             class={cn(
