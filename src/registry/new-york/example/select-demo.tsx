@@ -1,5 +1,4 @@
-import * as React from "react"
-
+import { component$ } from "@builder.io/qwik";
 import {
   Select,
   SelectContent,
@@ -8,12 +7,12 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "~/registry/new-york/ui/select-vanilla";
 
-export default function SelectDemo() {
+export default component$(() => {
   return (
     <Select>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger class="w-[180px]">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -27,5 +26,5 @@ export default function SelectDemo() {
         </SelectGroup>
       </SelectContent>
     </Select>
-  )
-}
+  );
+});

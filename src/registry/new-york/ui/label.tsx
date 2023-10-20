@@ -1,20 +1,18 @@
 import { type QwikIntrinsicElements, component$, Slot } from "@builder.io/qwik";
-import { type VariantProps, cva } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 
-const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-);
+type LabelProps = QwikIntrinsicElements["label"];
 
-type LabelProps = QwikIntrinsicElements["label"] &
-  VariantProps<typeof labelVariants>;
-
-const Label = component$<LabelProps>((props) => {
+export const Label = component$<LabelProps>((props) => {
   return (
-    <label class={cn(labelVariants(), props.class)} {...props}>
+    <label
+      class={cn(
+        "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+        props.class
+      )}
+      {...props}
+    >
       <Slot />
     </label>
   );
 });
-
-export { Label };

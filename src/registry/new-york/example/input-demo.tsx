@@ -1,5 +1,6 @@
-import { Input } from "@/registry/new-york/ui/input"
+import { component$ } from "@builder.io/qwik";
+import { Input } from "~/registry/new-york/ui/input";
 
-export default function InputDemo() {
-  return <Input type="email" placeholder="Email" />
-}
+export default component$(() => {
+  return <Input type="email" placeholder="Email" />;
+});

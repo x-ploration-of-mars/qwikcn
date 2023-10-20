@@ -1,11 +1,12 @@
-import { Button } from "@/registry/new-york/ui/button"
-import { Input } from "@/registry/new-york/ui/input"
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/registry/new-york/ui/button";
+import { Input } from "~/registry/new-york/ui/input";
 
-export default function InputWithButton() {
+export default component$(() => {
   return (
-    <div className="flex w-full max-w-sm items-center space-x-2">
+    <div class="flex w-full max-w-sm items-center space-x-2">
       <Input type="email" placeholder="Email" />
       <Button type="submit">Subscribe</Button>
     </div>
-  )
-}
+  );
+});

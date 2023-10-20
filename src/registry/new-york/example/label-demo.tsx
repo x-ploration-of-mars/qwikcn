@@ -1,13 +1,14 @@
-import { Checkbox } from "@/registry/new-york/ui/checkbox"
-import { Label } from "@/registry/new-york/ui/label"
+import { Checkbox } from "~/registry/new-york/ui/checkbox";
+import { Label } from "~/registry/new-york/ui/label";
+import { component$ } from "@builder.io/qwik";
 
-export default function LabelDemo() {
+export default component$(() => {
   return (
     <div>
-      <div className="flex items-center space-x-2">
+      <div class="flex items-center space-x-2">
         <Checkbox id="terms" />
-        <Label htmlFor="terms">Accept terms and conditions</Label>
+        <Label for="terms">Accept terms and conditions</Label>
       </div>
     </div>
-  )
-}
+  );
+});

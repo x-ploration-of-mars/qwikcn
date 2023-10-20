@@ -1,11 +1,12 @@
-import { UnderlineIcon } from "@radix-ui/react-icons"
+import { component$ } from "@builder.io/qwik";
+import { LuUnderline } from "@qwikest/icons/lucide";
 
-import { Toggle } from "@/registry/new-york/ui/toggle"
+import { Toggle } from "~/registry/new-york/ui/toggle-vanilla";
 
-export default function ToggleDisabled() {
+export default component$(() => {
   return (
     <Toggle aria-label="Toggle italic" disabled>
-      <UnderlineIcon className="h-4 w-4" />
+      <LuUnderline class="h-4 w-4" />
     </Toggle>
-  )
-}
+  );
+});

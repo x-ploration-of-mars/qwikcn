@@ -8,7 +8,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "~/registry/new-york/ui/alert-dialog";
+} from "~/registry/new-york/ui/alert-dialog-react";
 import { Button } from "~/registry/new-york/ui/button";
 
 export default function AlertDialogDemo() {

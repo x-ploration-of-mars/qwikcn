@@ -22,7 +22,7 @@ import {
   Tab as TabBase,
 } from "~/registry/new-york/ui/tabs";
 
-import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
+import { QwikIntrinsicElements, Slot, component$ } from "@builder.io/qwik";
 import {
   TabListProps,
   TabPanelProps,
@@ -170,7 +170,9 @@ const Link = component$<LinkProps>(({ ...props }) => {
     <LinkBase
       class={cn("font-medium underline underline-offset-4", props.class)}
       {...props}
-    />
+    >
+      <Slot />
+    </LinkBase>
   );
 });
 
@@ -182,7 +184,9 @@ const LinkedCard = component$<LinkProps>(({ ...props }) => {
         props.class
       )}
       {...props}
-    />
+    >
+      <Slot />
+    </LinkBase>
   );
 });
 

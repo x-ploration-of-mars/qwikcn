@@ -1,8 +1,12 @@
-import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
+import { QwikIntrinsicElements, Slot, component$ } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 
 const RadioGroup = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
-  return <div class={cn("grid gap-2", props.class)} {...props} />;
+  return (
+    <div class={cn("grid gap-2", props.class)} {...props}>
+      <Slot />
+    </div>
+  );
 });
 
 const RadioGroupItem = component$<

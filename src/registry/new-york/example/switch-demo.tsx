@@ -1,11 +1,12 @@
-import { Label } from "@/registry/new-york/ui/label"
-import { Switch } from "@/registry/new-york/ui/switch"
+import { component$ } from "@builder.io/qwik";
+import { Label } from "~/registry/new-york/ui/label";
+import { Switch } from "~/registry/new-york/ui/switch-vanilla";
 
-export default function SwitchDemo() {
+export default component$(() => {
   return (
-    <div className="flex items-center space-x-2">
+    <div class="flex items-center space-x-2">
       <Switch id="airplane-mode" />
-      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+      <Label for="airplane-mode">Airplane Mode</Label>
     </div>
-  )
-}
+  );
+});

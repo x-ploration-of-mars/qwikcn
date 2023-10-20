@@ -1,16 +1,17 @@
-import { Separator } from "@/registry/new-york/ui/separator"
+import { component$ } from "@builder.io/qwik";
+import { Separator } from "~/registry/new-york/ui/separator";
 
-export default function SeparatorDemo() {
+export default component$(() => {
   return (
     <div>
-      <div className="space-y-1">
-        <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
-        <p className="text-sm text-muted-foreground">
+      <div class="space-y-1">
+        <h4 class="text-sm font-medium leading-none">Radix Primitives</h4>
+        <p class="text-sm text-muted-foreground">
           An open-source UI component library.
         </p>
       </div>
-      <Separator className="my-4" />
-      <div className="flex h-5 items-center space-x-4 text-sm">
+      <Separator class="my-4" />
+      <div class="flex h-5 items-center space-x-4 text-sm">
         <div>Blog</div>
         <Separator orientation="vertical" />
         <div>Docs</div>
@@ -18,5 +19,5 @@ export default function SeparatorDemo() {
         <div>Source</div>
       </div>
     </div>
-  )
-}
+  );
+});

@@ -1,4 +1,5 @@
-import { Button } from "@/registry/new-york/ui/button"
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/registry/new-york/ui/button";
 import {
   Card,
   CardContent,
@@ -6,24 +7,19 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york/ui/card"
-import { Input } from "@/registry/new-york/ui/input"
-import { Label } from "@/registry/new-york/ui/label"
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/registry/new-york/ui/tabs"
+} from "~/registry/new-york/ui/card";
+import { Input } from "~/registry/new-york/ui/input";
+import { Label } from "~/registry/new-york/ui/label";
+import { Tabs, TabPanel, TabList, Tab } from "~/registry/new-york/ui/tabs";
 
-export default function TabsDemo() {
+export default component$(() => {
   return (
-    <Tabs defaultValue="account" className="w-[400px]">
-      <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="account">Account</TabsTrigger>
-        <TabsTrigger value="password">Password</TabsTrigger>
-      </TabsList>
-      <TabsContent value="account">
+    <Tabs class="w-[400px]">
+      <TabList class="grid w-full grid-cols-2">
+        <Tab value="account">Account</Tab>
+        <Tab value="password">Password</Tab>
+      </TabList>
+      <TabPanel>
         <Card>
           <CardHeader>
             <CardTitle>Account</CardTitle>
@@ -31,22 +27,22 @@ export default function TabsDemo() {
               Make changes to your account here. Click save when you're done.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
+          <CardContent class="space-y-2">
+            <div class="space-y-1">
+              <Label for="name">Name</Label>
+              <Input id="name" value="Pedro Duarte" />
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
+            <div class="space-y-1">
+              <Label for="username">Username</Label>
+              <Input id="username" value="~peduarte" />
             </div>
           </CardContent>
           <CardFooter>
             <Button>Save changes</Button>
           </CardFooter>
         </Card>
-      </TabsContent>
-      <TabsContent value="password">
+      </TabPanel>
+      <TabPanel label="password">
         <Card>
           <CardHeader>
             <CardTitle>Password</CardTitle>
@@ -54,13 +50,13 @@ export default function TabsDemo() {
               Change your password here. After saving, you'll be logged out.
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
+          <CardContent class="space-y-2">
+            <div class="space-y-1">
+              <Label for="current">Current password</Label>
               <Input id="current" type="password" />
             </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
+            <div class="space-y-1">
+              <Label for="new">New password</Label>
               <Input id="new" type="password" />
             </div>
           </CardContent>
@@ -68,7 +64,7 @@ export default function TabsDemo() {
             <Button>Save password</Button>
           </CardFooter>
         </Card>
-      </TabsContent>
+      </TabPanel>
     </Tabs>
-  )
-}
+  );
+});

@@ -1,6 +1,5 @@
-import * as React from "react"
-
-import { Button } from "@/registry/new-york/ui/button"
+import { component$ } from "@builder.io/qwik";
+import { Button } from "~/registry/new-york/ui/button";
 import {
   Card,
   CardContent,
@@ -8,33 +7,33 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/new-york/ui/card"
-import { Input } from "@/registry/new-york/ui/input"
-import { Label } from "@/registry/new-york/ui/label"
+} from "~/registry/new-york/ui/card";
+import { Input } from "~/registry/new-york/ui/input";
+import { Label } from "~/registry/new-york/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/registry/new-york/ui/select"
+} from "~/registry/new-york/ui/select-vanilla";
 
-export default function CardWithForm() {
+export default component$(() => {
   return (
-    <Card className="w-[350px]">
+    <Card class="w-[350px]">
       <CardHeader>
         <CardTitle>Create project</CardTitle>
         <CardDescription>Deploy your new project in one-click.</CardDescription>
       </CardHeader>
       <CardContent>
         <form>
-          <div className="grid w-full items-center gap-4">
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="name">Name</Label>
+          <div class="grid w-full items-center gap-4">
+            <div class="flex flex-col space-y-1.5">
+              <Label for="name">Name</Label>
               <Input id="name" placeholder="Name of your project" />
             </div>
-            <div className="flex flex-col space-y-1.5">
-              <Label htmlFor="framework">Framework</Label>
+            <div class="flex flex-col space-y-1.5">
+              <Label for="framework">Framework</Label>
               <Select>
                 <SelectTrigger id="framework">
                   <SelectValue placeholder="Select" />
@@ -50,10 +49,10 @@ export default function CardWithForm() {
           </div>
         </form>
       </CardContent>
-      <CardFooter className="flex justify-between">
+      <CardFooter class="flex justify-between">
         <Button variant="outline">Cancel</Button>
         <Button>Deploy</Button>
       </CardFooter>
     </Card>
-  )
-}
+  );
+});

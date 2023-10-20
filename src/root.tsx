@@ -1,3 +1,5 @@
+import path from "path";
+
 import { component$ } from "@builder.io/qwik";
 import {
   QwikCityProvider,

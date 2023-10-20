@@ -1,11 +1,12 @@
-import { FontItalicIcon } from "@radix-ui/react-icons"
+import { component$ } from "@builder.io/qwik";
+import { LuItalic } from "@qwikest/icons/lucide";
 
-import { Toggle } from "@/registry/new-york/ui/toggle"
+import { Toggle } from "~/registry/new-york/ui/toggle-vanilla";
 
-export default function ToggleLg() {
+export default component$(() => {
   return (
     <Toggle size="lg" aria-label="Toggle italic">
-      <FontItalicIcon className="h-4 w-4" />
+      <LuItalic class="h-4 w-4" />
     </Toggle>
-  )
-}
+  );
+});

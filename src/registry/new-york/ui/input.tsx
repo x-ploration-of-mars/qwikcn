@@ -5,9 +5,9 @@ type InputProps = Omit<QwikIntrinsicElements["input"], "children"> & {
   error?: string;
 };
 
-const Input = component$<InputProps>(({ name, error, ...props }) => {
+export const Input = component$<InputProps>(({ name, error, ...props }) => {
   return (
-    <div>
+    <>
       <input
         aria-errormessage={`${name}-error`}
         aria-invalid={!!error}
@@ -24,8 +24,6 @@ const Input = component$<InputProps>(({ name, error, ...props }) => {
           {error}
         </div>
       )}
-    </div>
+    </>
   );
 });
-
-export { Input };

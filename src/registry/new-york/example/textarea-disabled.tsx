@@ -1,5 +1,6 @@
-import { Textarea } from "@/registry/new-york/ui/textarea"
+import { component$ } from "@builder.io/qwik";
+import { Textarea } from "~/registry/new-york/ui/textarea";
 
-export default function TextareaDisabled() {
-  return <Textarea placeholder="Type your message here." disabled />
-}
+export default component$(() => {
+  return <Textarea placeholder="Type your message here." disabled />;
+});
