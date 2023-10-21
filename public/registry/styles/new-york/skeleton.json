@@ -1,0 +1,10 @@
+{
+  "name": "skeleton",
+  "files": [
+    {
+      "name": "skeleton.tsx",
+      "content": "import { QwikIntrinsicElements, component$ } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\nexport const Skeleton = component$<QwikIntrinsicElements[\"div\"]>(\n  ({ ...props }) => {\n    return (\n      <div\n        class={cn(\"animate-pulse rounded-md bg-primary/10\", props.class)}\n        {...props}\n      />\n    );\n  }\n);\n"
+    }
+  ],
+  "type": "components:ui"
+}

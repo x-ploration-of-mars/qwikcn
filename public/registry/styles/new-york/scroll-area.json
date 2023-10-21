@@ -1,0 +1,13 @@
+{
+  "name": "scroll-area",
+  "dependencies": [
+    "@radix-ui/react-scroll-area"
+  ],
+  "files": [
+    {
+      "name": "scroll-area-vanilla.tsx",
+      "content": "import {\n  $,\n  QwikIntrinsicElements,\n  QwikUIEvent,\n  Slot,\n  component$,\n  useSignal,\n} from \"@builder.io/qwik\";\n\nconst ScrollArea = component$<QwikIntrinsicElements[\"div\"]>(({ ...props }) => {\n  const containerRef = useSignal<HTMLDivElement>();\n  const scrollPosition = useSignal(0);\n\n  const handleScroll = $((e: QwikUIEvent, currentTarget: HTMLDivElement) => {\n    return (scrollPosition.value = currentTarget.scrollTop);\n  });\n\n  return (\n    <div\n      class={`relative overflow-hidden ${props.class}`}\n      onScroll$={handleScroll}\n      ref={containerRef}\n      {...props}\n    >\n      <div class=\"h-full w-full rounded-[inherit]\" onScroll$={handleScroll}>\n        <Slot />\n      </div>\n      <ScrollBar\n        scrollPosition={scrollPosition.value}\n        containerRef={containerRef}\n      />\n    </div>\n  );\n});\n\ntype ScrollBarProps = QwikIntrinsicElements[\"div\"] & {\n  scrollPosition: number;\n  containerRef: any;\n};\nconst ScrollBar = component$<ScrollBarProps>(\n  ({ scrollPosition, containerRef }) => {\n    const totalHeight = containerRef.current?.scrollHeight || 0;\n    const containerHeight = containerRef.current?.clientHeight || 0;\n    const thumbHeight = (containerHeight / totalHeight) * containerHeight;\n\n    return (\n      <div\n        class=\"flex touch-none select-none transition-colors w-2.5 border-l border-l-transparent p-[1px] h-full\"\n        style={{\n          transform: `translateY(${(scrollPosition / totalHeight) * 100}%)`,\n          height: thumbHeight,\n        }}\n      >\n        <div class=\"relative rounded-full bg-border flex-1\"></div>\n      </div>\n    );\n  }\n);\n\nexport { ScrollArea, ScrollBar };\n"
+    }
+  ],
+  "type": "components:ui"
+}

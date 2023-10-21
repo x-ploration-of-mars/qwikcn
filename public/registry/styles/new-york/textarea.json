@@ -1,0 +1,10 @@
+{
+  "name": "textarea",
+  "files": [
+    {
+      "name": "textarea.tsx",
+      "content": "import { component$, type QwikIntrinsicElements } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\ntype TextareaProps = Omit<QwikIntrinsicElements[\"textarea\"], \"children\"> & {\n  error: string;\n};\n\nconst Textarea = component$<TextareaProps>(({ name, error, ...props }) => {\n  return (\n    <>\n      <textarea\n        class={cn(\n          \"flex min-h-[60px] w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50\",\n          props.class\n        )}\n        {...props}\n      />\n      {error && <div id={`${name}-error`}>{error}</div>}\n    </>\n  );\n});\n\nexport { Textarea };\n"
+    }
+  ],
+  "type": "components:ui"
+}

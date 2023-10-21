@@ -1,0 +1,13 @@
+{
+  "name": "separator",
+  "dependencies": [
+    "@radix-ui/react-separator"
+  ],
+  "files": [
+    {
+      "name": "separator.tsx",
+      "content": "import { component$ } from \"@builder.io/qwik\";\n\nimport {\n  Separator as QwikUISeparator,\n  type SeparatorProps,\n} from \"@qwik-ui/headless\";\nimport { cn } from \"~/lib/utils\";\n\nconst Separator = component$<SeparatorProps>(\n  ({ orientation = \"horizontal\", decorative = true, ...props }) => {\n    return (\n      <>\n        <QwikUISeparator\n          decorative={decorative}\n          orientation={orientation}\n          class={cn(\n            \"shrink-0 bg-border\",\n            orientation === \"horizontal\" ? \"h-[1px] w-full\" : \"h-full w-[1px]\",\n            props.class\n          )}\n          {...props}\n        />\n      </>\n    );\n  }\n);\n\nexport { Separator };\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "toggle",
+  "dependencies": [
+    "@radix-ui/react-toggle"
+  ],
+  "files": [
+    {
+      "name": "toggle-vanilla.tsx",
+      "content": "import { QwikIntrinsicElements, component$ } from \"@builder.io/qwik\";\nimport { VariantProps, cva } from \"class-variance-authority\";\nimport { cn } from \"~/lib/utils\";\n\nconst toggleVariants = cva(\n  \"inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-muted hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground\",\n  {\n    variants: {\n      variant: {\n        default: \"bg-transparent\",\n        outline:\n          \"border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground\",\n      },\n      size: {\n        default: \"h-9 px-3\",\n        sm: \"h-8 px-2\",\n        lg: \"h-10 px-3\",\n      },\n    },\n    defaultVariants: {\n      variant: \"default\",\n      size: \"default\",\n    },\n  }\n);\n\ntype ToggleProps = Omit<QwikIntrinsicElements[\"checkbox\"], \"children\"> &\n  VariantProps<typeof toggleVariants>;\n\nexport const Toggle = component$<ToggleProps>(({ variant, size, ...props }) => (\n  <div\n    class={cn(\n      toggleVariants({\n        variant,\n        size,\n      }),\n      props.class\n    )}\n  >\n    <input type=\"checkbox\" class=\"hidden\" {...props} />\n  </div>\n));\n"
+    }
+  ],
+  "type": "components:ui"
+}

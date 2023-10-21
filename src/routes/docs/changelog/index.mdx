@@ -1,0 +1,67 @@
+---
+title: Changelog
+description: Latest updates and announcements.
+toc: false
+---
+
+## October 2023 - New-York style components
+
+Qwikcn now has most New-York style components natively rewritten in Qwik.
+
+This includes:
+
+- [accordion](/docs/components/accordion)
+- [alert](/docs/components/alert)
+- [aspect-ratio](/docs/components/aspect-ratio)
+- [badge](/docs/components/badge)
+- [button](/docs/components/button)
+- [card](/docs/components/card)
+- [checkbox](/docs/components/checkbox)
+- [input](/docs/components/input)
+- [label](/docs/components/label)
+- [separator](/docs/components/separator)
+- [skeleton](/docs/components/skeleton)
+- [tabs](/docs/components/tabs)
+- [textarea](/docs/components/textarea)
+
+Because there are still quite a few headless components that don't yet exist in Qwik, some components are rewritten to use vanilla HTML, others are qwikified (with `qwikify$`), and some will require you to use shadcn's React components and to qwikify them yourself (My priority now will be to help qwik-ui to get these headless components ready).
+
+Vanilla HTML components (similar shadcn API):
+
+- [avatar](/docs/components/avatar)
+- [collapsible](/docs/components/collapsible)
+- [radio-group](/docs/components/radio-group)
+- [select](/docs/components/select)
+- [slider](/docs/components/slider)
+- [switch](/docs/components/switch)
+- [toggle](/docs/components/toggle)
+
+Qwikified components (similar shadcn API):
+
+- [calendar](/docs/components/calendar)
+- [combobox](/docs/components/combobox)
+- [progress](/docs/components/progress)
+- [scroll-area](/docs/components/scroll-area)
+- [toaster](/docs/components/toaster)
+
+React components (a common pattern to these components and why they are harder to port to Qwik is that they are composable with multiple sub-components):
+
+- [alert-dialog](/docs/components/alert-dialog)
+- [command](/docs/components/command)
+- [context-menu](/docs/components/context-menu)
+- [dialog](/docs/components/dialog)
+- [dropdown-menu](/docs/components/dropdown-menu)
+- [hover-card](/docs/components/hover-card)
+- [menubar](/docs/components/menubar)
+- [navigation-menu](/docs/components/navigation-menu)
+- [popover](/docs/components/popover)
+- [sheet](/docs/components/sheet)
+- [table](/docs/components/table)
+- [toast](/docs/components/toast)
+- [tooltip](/docs/components/tooltip)
+
+> If you are not comfortable at qwikifying those React components yourself, I would recommend to wait for the most common ones to be available in qwik-ui before using qwikcn.
+
+### Thank you
+
+I'd like to thank everyone who has been using this project, providing feedback and contributing to it. I really appreciate it. Thank you 🙏

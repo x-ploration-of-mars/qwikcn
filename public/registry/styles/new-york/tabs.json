@@ -1,0 +1,13 @@
+{
+  "name": "tabs",
+  "dependencies": [
+    "@radix-ui/react-tabs"
+  ],
+  "files": [
+    {
+      "name": "tabs.tsx",
+      "content": "import { Slot, component$ } from \"@builder.io/qwik\";\nimport {\n  Tab as QwikUITab,\n  TabList as QwikUITabList,\n  Tabs as QwikUITabs,\n  TabPanel as QwikUITabPanel,\n  type TabProps,\n  type TabPanelProps,\n  type TabListProps,\n} from \"@qwik-ui/headless\";\nimport { cn } from \"~/lib/utils\";\n\nconst Tabs = QwikUITabs;\n\nconst TabList = component$<TabListProps>((props) => {\n  return (\n    <QwikUITabList\n      class={cn(\n        \"inline-flex h-9 items-center justify-center rounded-lg bg-muted p-1 text-muted-foreground\",\n        props.class\n      )}\n    >\n      <Slot />\n    </QwikUITabList>\n  );\n});\n\nconst Tab = component$<TabProps>((props) => {\n  return (\n    <QwikUITab\n      class={cn(\n        \"inline-flex items-center justify-center whitespace-nowrap rounded-md px-3 py-1 text-sm font-medium ring-offset-background transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow\",\n        props.class\n      )}\n      {...props}\n    />\n  );\n});\n\nconst TabPanel = component$<TabPanelProps>((props) => {\n  return (\n    <QwikUITabPanel\n      class={cn(\n        \"mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2\",\n        props.class\n      )}\n      {...props}\n    >\n      <Slot />\n    </QwikUITabPanel>\n  );\n});\n\nexport { Tabs, TabList, Tab, TabPanel };\n"
+    }
+  ],
+  "type": "components:ui"
+}

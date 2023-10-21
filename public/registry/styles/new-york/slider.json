@@ -1,0 +1,13 @@
+{
+  "name": "slider",
+  "dependencies": [
+    "@radix-ui/react-slider"
+  ],
+  "files": [
+    {
+      "name": "slider-vanilla.tsx",
+      "content": "import { QwikIntrinsicElements, component$ } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\nconst Slider = component$<Omit<QwikIntrinsicElements[\"range\"], \"children\">>(\n  ({ ...props }) => (\n    <div\n      class={cn(\n        \"relative flex w-full touch-none select-none items-center\",\n        props.class\n      )}\n    >\n      <div class=\"relative h-1.5 w-full grow overflow-hidden rounded-full bg-primary/20\">\n        <input type=\"range\" class=\"absolute h-full bg-primary\" {...props} />\n      </div>\n      <div class=\"block h-4 w-4 rounded-full border border-primary/50 bg-background shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50\" />\n    </div>\n  )\n);\n\nexport { Slider };\n"
+    }
+  ],
+  "type": "components:ui"
+}

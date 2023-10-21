@@ -1,0 +1,13 @@
+{
+  "name": "switch-vanilla",
+  "dependencies": [
+    "@radix-ui/react-switch"
+  ],
+  "files": [
+    {
+      "name": "switch-vanilla.tsx",
+      "content": "import { QwikIntrinsicElements, component$ } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\nconst Switch = component$<Omit<QwikIntrinsicElements[\"checkbox\"], \"children\">>(\n  ({ checked, ...props }) => (\n    <div\n      class={cn(\n        \"peer inline-flex h-[20px] w-[36px] shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50\",\n        props.class\n      )}\n    >\n      <input type=\"checkbox\" class=\"hidden\" {...props} />\n      <div\n        class={cn(\n          \"pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform\",\n          {\n            \"translate-x-4\": checked,\n            \"translate-x-0\": !checked,\n          }\n        )}\n      />\n    </div>\n  )\n);\n\nexport { Switch };\n"
+    }
+  ],
+  "type": "components:ui"
+}

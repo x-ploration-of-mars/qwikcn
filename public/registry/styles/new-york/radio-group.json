@@ -1,0 +1,13 @@
+{
+  "name": "radio-group",
+  "dependencies": [
+    "@radix-ui/react-radio-group"
+  ],
+  "files": [
+    {
+      "name": "radio-group-vanilla.tsx",
+      "content": "import { QwikIntrinsicElements, component$ } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\nconst RadioGroup = component$<QwikIntrinsicElements[\"div\"]>(({ ...props }) => {\n  return <div class={cn(\"grid gap-2\", props.class)} {...props} />;\n});\n\nconst RadioGroupItem = component$<\n  Omit<QwikIntrinsicElements[\"div\"], \"children\">\n>(({ ...props }) => {\n  return (\n    <div\n      class={cn(\n        \"aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50\",\n        props.class\n      )}\n    >\n      <input type=\"radio\" {...props} />\n    </div>\n  );\n});\n\nexport { RadioGroup, RadioGroupItem };\n"
+    }
+  ],
+  "type": "components:ui"
+}

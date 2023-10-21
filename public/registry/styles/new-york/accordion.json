@@ -1,0 +1,13 @@
+{
+  "name": "accordion",
+  "dependencies": [
+    "@radix-ui/react-accordion"
+  ],
+  "files": [
+    {
+      "name": "accordion.tsx",
+      "content": "import { component$, Slot } from \"@builder.io/qwik\";\n\nimport {\n  AccordionRoot as QwikUIAccordionRoot,\n  AccordionItem as QwikUIAccordionItem,\n  AccordionHeader as QwikUIAccordionHeader,\n  AccordionTrigger as QwikUIAccordionTrigger,\n  AccordionContent as QwikUIAccordionContent,\n  type AccordionItemProps,\n  type AccordionTriggerProps,\n  type AccordionHeaderProps,\n} from \"@qwik-ui/headless\";\n\nimport { cn } from \"~/lib/utils\";\n\nimport { LuChevronDown } from \"@qwikest/icons/lucide\";\n\nconst Accordion = QwikUIAccordionRoot;\n\nconst AccordionItem = component$<AccordionItemProps>((props) => {\n  return (\n    <QwikUIAccordionItem class={cn(\"border-b\", props.class)} {...props}>\n      <Slot />\n    </QwikUIAccordionItem>\n  );\n});\n\n// AccordionHeader will render as an h3 element by default, which can be problematic with markdown cn-prose styles\nconst AccordionHeader = component$<AccordionHeaderProps>((props) => {\n  return (\n    <QwikUIAccordionHeader class={cn(\"flex\", props.class)} {...props}>\n      <Slot />\n    </QwikUIAccordionHeader>\n  );\n});\n\nconst AccordionTrigger = component$<AccordionTriggerProps>((props) => {\n  return (\n    <QwikUIAccordionTrigger\n      class={cn(\n        \"flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180\",\n        props.class\n      )}\n      {...props}\n    >\n      <Slot />\n      <LuChevronDown class=\"h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200\" />\n    </QwikUIAccordionTrigger>\n  );\n});\n\nconst AccordionContent = component$<AccordionItemProps>((props) => {\n  return (\n    <QwikUIAccordionContent\n      class={cn(\n        \"overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\",\n        props.class\n      )}\n      {...props}\n    >\n      <div class=\"pb-4 pt-0\">\n        <Slot />\n      </div>\n    </QwikUIAccordionContent>\n  );\n});\n\nexport {\n  Accordion,\n  AccordionItem,\n  AccordionHeader,\n  AccordionTrigger,\n  AccordionContent,\n  LuChevronDown,\n};\n"
+    }
+  ],
+  "type": "components:ui"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "checkbox",
+  "dependencies": [
+    "@radix-ui/react-checkbox"
+  ],
+  "files": [
+    {
+      "name": "checkbox.tsx",
+      "content": "import { component$, type QwikIntrinsicElements } from \"@builder.io/qwik\";\nimport { cn } from \"~/lib/utils\";\n\ntype CheckboxProps = Omit<QwikIntrinsicElements[\"input\"], \"children\">;\n\nconst Checkbox = component$<CheckboxProps>(({ name, ...props }) => {\n  return (\n    <div>\n      <input\n        type=\"checkbox\"\n        class={cn(\n          \"peer h-4 w-4 shrink-0 rounded-sm border border-primary text-primary shadow focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground\",\n          props.class\n        )}\n        name={name}\n        id={name}\n        {...props}\n      />\n    </div>\n  );\n});\n\nexport { Checkbox };\n"
+    }
+  ],
+  "type": "components:ui"
+}

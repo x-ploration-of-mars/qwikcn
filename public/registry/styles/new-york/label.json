@@ -1,0 +1,13 @@
+{
+  "name": "label",
+  "dependencies": [
+    "@radix-ui/react-label"
+  ],
+  "files": [
+    {
+      "name": "label.tsx",
+      "content": "import { type QwikIntrinsicElements, component$, Slot } from \"@builder.io/qwik\";\nimport { type VariantProps, cva } from \"class-variance-authority\";\nimport { cn } from \"~/lib/utils\";\n\nconst labelVariants = cva(\n  \"text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\"\n);\n\ntype LabelProps = QwikIntrinsicElements[\"label\"] &\n  VariantProps<typeof labelVariants>;\n\nconst Label = component$<LabelProps>((props) => {\n  return (\n    <label class={cn(labelVariants(), props.class)} {...props}>\n      <Slot />\n    </label>\n  );\n});\n\nexport { Label };\n"
+    }
+  ],
+  "type": "components:ui"
+}
