@@ -5,8 +5,8 @@ import { QwikIntrinsicElements, Slot, component$ } from "@builder.io/qwik";
 type ThemeWrapperProps = QwikIntrinsicElements["div"] & {
   defaultTheme?: string;
 };
-export const ThemeWrapper = component$(
-  ({ defaultTheme, ...props }: ThemeWrapperProps) => {
+export const ThemeWrapper = component$<ThemeWrapperProps>(
+  ({ defaultTheme, ...props }) => {
     const config = useConfig();
 
     return (

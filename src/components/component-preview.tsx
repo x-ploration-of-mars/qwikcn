@@ -3,25 +3,41 @@ import { CopyButton } from "~/components/copy-button";
 import { CopyWithClassNamesQwikified } from "./copy-with-classnames-qwikified";
 import { StyleSwitcher } from "~/components/style-switcher";
 import { ThemeWrapper } from "~/components/theme-wrapper";
-import { Tabs, TabPanel, TabList, Tab } from "~/registry/new-york/ui/tabs";
 import {
   QwikIntrinsicElements,
   Slot,
   component$,
   useSignal,
+  useTask$,
 } from "@builder.io/qwik";
+import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
+import { setHighlighter } from "~/lib/utils";
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
   extractedClassNames?: string;
   align?: "center" | "start" | "end";
+  code?: string;
+  language?: "tsx" | "html" | "css";
 };
 
 export const ComponentPreview = component$<ComponentPreviewProps>(
   ({
     extractedClassNames,
     align = "center",
+    code,
+    language = "tsx",
     ...props
-  }: ComponentPreviewProps) => {
+  }) => {
+    const highlighterSignal = useSignal<string>();
+
+    useTask$(async function createHighlightedCode() {
+      const highlighter = await setHighlighter();
+
+      highlighterSignal.value = highlighter.codeToHtml(code || "", {
+        lang: language,
+      });
+    });
+
     const codeSlotContainerRef = useSignal<HTMLDivElement>();
     const codeString = useSignal(codeSlotContainerRef.value?.innerHTML || "");
 
@@ -31,22 +47,14 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
         {...props}
       >
         <Tabs class="relative mr-auto w-full">
-          <div class="flex items-center justify-between pb-3">
-            <TabList class="w-full justify-start rounded-none border-b bg-transparent p-0">
-              <Tab
-                value="preview"
-                class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-              >
-                Preview
-              </Tab>
-              <Tab
-                value="code"
-                class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
-              >
-                Code
-              </Tab>
-            </TabList>
-          </div>
+          <TabList class="w-full justify-start rounded-none border-b bg-transparent p-0">
+            <Tab class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none">
+              Preview
+            </Tab>
+            <Tab class="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none">
+              Code
+            </Tab>
+          </TabList>
           <TabPanel class="relative rounded-md border">
             <div class="flex items-center justify-between p-4">
               <StyleSwitcher />
@@ -80,7 +88,7 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
                 ref={codeSlotContainerRef}
                 class="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto"
               >
-                <Slot name="code" />
+                <div dangerouslySetInnerHTML={highlighterSignal.value} />
               </div>
             </div>
           </TabPanel>

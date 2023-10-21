@@ -7,6 +7,9 @@ import { Link } from "@builder.io/qwik-city";
 
 import { Callout, ComponentPreview } from "~/components/mdx-components";
 
+import CardWithFormPreview from "~/registry/new-york/examples/card-with-form";
+import CardWithFormCode from "~/registry/new-york/examples/card-with-form?raw";
+
 The `components.json` file holds configuration for your project.
 
 We use it to understand how your project is set up and how to generate components customized for your project.
@@ -45,7 +48,9 @@ The style for your components. **This cannot be changed after initialization.**
 }
 ```
 
-<ComponentPreview name="card-with-form" />
+<ComponentPreview code={CardWithFormCode}>
+  <CardWithFormPreview q:slot="preview" />
+</ComponentPreview>
 
 ## tailwind
 
@@ -106,18 +111,6 @@ To use utility classes for theming set `tailwind.cssVariables` to `false`. For C
 For more information, see the <Link href="/docs/theming">theming docs</Link>.
 
 **This cannot be changed after initialization.** To switch between CSS variables and utility classes, you'll have to delete and re-install your components.
-
-## rsc
-
-Whether or not to enable support for React Server Components.
-
-The CLI automatically adds a `use client` directive to client components when set to `true`.
-
-```json title="components.json"
-{
-  "rsc": `true` | `false`
-}
-```
 
 ## tsx
 

@@ -9,6 +9,14 @@ import { getHighlighter, loadTheme } from "shiki";
 
 export default defineConfig(async () => {
   const { default: rehypePrettyCode } = await import("rehype-pretty-code");
+
+  const setHighlighter = async () => {
+    const theme = await loadTheme(
+      path.join(process.cwd(), "src/lib/themes/dark.json")
+    );
+    return await getHighlighter({ theme });
+  };
+
   return {
     preview: {
       headers: {
@@ -27,12 +35,7 @@ export default defineConfig(async () => {
             [
               rehypePrettyCode,
               {
-                getHighlighter: async () => {
-                  const theme = await loadTheme(
-                    path.join(process.cwd(), "src/lib/themes/dark.json")
-                  );
-                  return await getHighlighter({ theme });
-                },
+                getHighlighter: setHighlighter,
                 onVisitLine(node: any) {
                   // Prevent lines from collapsing in `display: grid` mode, and allow empty
                   // lines to be copy/pasted

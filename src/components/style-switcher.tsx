@@ -8,9 +8,9 @@ import {
   SelectValue,
 } from "~/registry/new-york/ui/select-vanilla";
 import { Style, styles } from "~/registry/styles";
-import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
+import { PropsOf, component$ } from "@builder.io/qwik";
 
-export const StyleSwitcher = component$<QwikIntrinsicElements["select"]>(
+export const StyleSwitcher = component$<PropsOf<typeof Select>>(
   ({ ...props }) => {
     const config = useConfig();
 
