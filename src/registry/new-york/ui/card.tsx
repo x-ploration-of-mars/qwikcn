@@ -1,8 +1,7 @@
 import { component$, type QwikIntrinsicElements, Slot } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 
-type CardProps = QwikIntrinsicElements["div"];
-const Card = component$<CardProps>((props) => {
+const Card = component$<QwikIntrinsicElements["div"]>((props) => {
   return (
     <div
       {...props}
@@ -16,8 +15,7 @@ const Card = component$<CardProps>((props) => {
   );
 });
 
-type CardHeaderProps = QwikIntrinsicElements["div"];
-const CardHeader = component$<CardHeaderProps>((props) => {
+const CardHeader = component$<QwikIntrinsicElements["div"]>((props) => {
   return (
     <div {...props} class={cn("flex flex-col space-y-1.5 p-6", props.class)}>
       <Slot />
@@ -25,20 +23,18 @@ const CardHeader = component$<CardHeaderProps>((props) => {
   );
 });
 
-type CardTitleProps = QwikIntrinsicElements["h3"];
-const CardTitle = component$<CardTitleProps>((props) => {
+const CardTitle = component$<QwikIntrinsicElements["div"]>((props) => {
   return (
-    <h3
+    <div
       {...props}
       class={cn("font-semibold leading-none tracking-tight", props.class)}
     >
       <Slot />
-    </h3>
+    </div>
   );
 });
 
-type CardDescriptionProps = QwikIntrinsicElements["p"];
-const CardDescription = component$<CardDescriptionProps>((props) => {
+const CardDescription = component$<QwikIntrinsicElements["p"]>((props) => {
   return (
     <p {...props} class={cn("text-sm text-muted-foreground", props.class)}>
       <Slot />
@@ -46,8 +42,7 @@ const CardDescription = component$<CardDescriptionProps>((props) => {
   );
 });
 
-type CardContentProps = QwikIntrinsicElements["div"];
-const CardContent = component$<CardContentProps>((props) => {
+const CardContent = component$<QwikIntrinsicElements["div"]>((props) => {
   return (
     <div {...props} class={cn("p-6 pt-0", props.class)}>
       <Slot />
@@ -55,10 +50,10 @@ const CardContent = component$<CardContentProps>((props) => {
   );
 });
 
-type CardFooterProps = QwikIntrinsicElements["div"];
-const CardFooter = component$<CardFooterProps>((props) => {
+const CardFooter = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
+  console.log("props.class", props.class);
   return (
-    <div class={cn("flex items-center p-6 pt-0", props.class)} {...props}>
+    <div {...props} class={cn("flex items-center p-6 pt-0", props.class)}>
       <Slot />
     </div>
   );

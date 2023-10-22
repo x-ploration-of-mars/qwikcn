@@ -88,7 +88,7 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
                 ref={codeSlotContainerRef}
                 class="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto"
               >
-                <div dangerouslySetInnerHTML={highlighterSignal.value} />
+                <div dangerouslySetInnerHTML={code} />
               </div>
             </div>
           </TabPanel>

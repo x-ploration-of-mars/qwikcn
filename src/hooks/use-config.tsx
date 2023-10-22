@@ -8,10 +8,10 @@ export type Config = {
   theme: Theme["name"];
   radius: number;
 };
-export function useConfig() {
+export const useConfig = () => {
   return useSignalWithStorage<Config>("config", {
     style: "new-york",
     theme: "zinc",
     radius: 0.5,
   });
-}
+};

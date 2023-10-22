@@ -19,7 +19,7 @@ const Accordion = QwikUIAccordionRoot;
 
 const AccordionItem = component$<AccordionItemProps>((props) => {
   return (
-    <QwikUIAccordionItem class={cn("border-b", props.class)} {...props}>
+    <QwikUIAccordionItem {...props} class={cn("border-b", props.class)}>
       <Slot />
     </QwikUIAccordionItem>
   );
@@ -28,7 +28,7 @@ const AccordionItem = component$<AccordionItemProps>((props) => {
 // AccordionHeader will render as an h3 element by default, which can be problematic with markdown cn-prose styles
 const AccordionHeader = component$<AccordionHeaderProps>((props) => {
   return (
-    <QwikUIAccordionHeader class={cn("flex", props.class)} {...props}>
+    <QwikUIAccordionHeader {...props} class={cn("flex", props.class)}>
       <Slot />
     </QwikUIAccordionHeader>
   );
@@ -37,11 +37,11 @@ const AccordionHeader = component$<AccordionHeaderProps>((props) => {
 const AccordionTrigger = component$<AccordionTriggerProps>((props) => {
   return (
     <QwikUIAccordionTrigger
+      {...props}
       class={cn(
         "flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180",
         props.class
       )}
-      {...props}
     >
       <Slot />
       <LuChevronDown class="h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200" />
@@ -52,11 +52,11 @@ const AccordionTrigger = component$<AccordionTriggerProps>((props) => {
 const AccordionContent = component$<AccordionItemProps>((props) => {
   return (
     <QwikUIAccordionContent
+      {...props}
       class={cn(
         "overflow-hidden text-sm data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down",
         props.class
       )}
-      {...props}
     >
       <div class="pb-4 pt-0">
         <Slot />
