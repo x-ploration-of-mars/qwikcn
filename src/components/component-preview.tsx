@@ -1,6 +1,4 @@
 import { cn } from "~/lib/utils";
-import { CopyButton } from "~/components/copy-button";
-import { CopyWithClassNamesQwikified } from "./copy-with-classnames-qwikified";
 import { StyleSwitcher } from "~/components/style-switcher";
 import { ThemeWrapper } from "~/components/theme-wrapper";
 import {
@@ -14,20 +12,13 @@ import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 import { setHighlighter } from "~/lib/utils";
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
-  extractedClassNames?: string;
   align?: "center" | "start" | "end";
   code?: string;
   language?: "tsx" | "html" | "css";
 };
 
 export const ComponentPreview = component$<ComponentPreviewProps>(
-  ({
-    extractedClassNames,
-    align = "center",
-    code,
-    language = "tsx",
-    ...props
-  }) => {
+  ({ align = "center", code, language = "tsx", ...props }) => {
     const highlighterSignal = useSignal<string>();
 
     useTask$(async function createHighlightedCode() {
@@ -37,9 +28,6 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
         lang: language,
       });
     });
-
-    const codeSlotContainerRef = useSignal<HTMLDivElement>();
-    const codeString = useSignal(codeSlotContainerRef.value?.innerHTML || "");
 
     return (
       <div
@@ -58,14 +46,14 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
           <TabPanel class="relative rounded-md border">
             <div class="flex items-center justify-between p-4">
               <StyleSwitcher />
-              {extractedClassNames ? (
+              {/* {extractedClassNames ? (
                 <CopyWithClassNamesQwikified
                   value={codeString.value}
                   extractedClasses={extractedClassNames}
                 />
               ) : (
                 codeString.value && <CopyButton value={codeString.value} />
-              )}
+              )} */}
             </div>
             <ThemeWrapper defaultTheme="zinc">
               <div
@@ -84,11 +72,8 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
           </TabPanel>
           <TabPanel>
             <div class="flex flex-col space-y-4">
-              <div
-                ref={codeSlotContainerRef}
-                class="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto"
-              >
-                <div dangerouslySetInnerHTML={code} />
+              <div class="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
+                <div dangerouslySetInnerHTML={highlighterSignal.value} />
               </div>
             </div>
           </TabPanel>
