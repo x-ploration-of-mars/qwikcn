@@ -25,9 +25,9 @@ type AlertProps = QwikIntrinsicElements["div"] &
 const Alert = component$<AlertProps>(({ variant, ...props }) => {
   return (
     <div
+      {...props}
       role="alert"
       class={cn(alertVariants({ variant }), props.class)}
-      {...props}
     >
       <Slot />
     </div>
@@ -37,8 +37,8 @@ const Alert = component$<AlertProps>(({ variant, ...props }) => {
 const AlertTitle = component$<QwikIntrinsicElements["h5"]>(({ ...props }) => {
   return (
     <h5
-      class={cn("mb-1 font-medium leading-none tracking-tight", props.class)}
       {...props}
+      class={cn("mb-1 font-medium leading-none tracking-tight", props.class)}
     >
       <Slot />
     </h5>
@@ -48,7 +48,7 @@ const AlertTitle = component$<QwikIntrinsicElements["h5"]>(({ ...props }) => {
 const AlertDescription = component$<QwikIntrinsicElements["div"]>(
   ({ ...props }) => {
     return (
-      <div class={cn("text-sm [&_p]:leading-relaxed", props.class)} {...props}>
+      <div {...props} class={cn("text-sm [&_p]:leading-relaxed", props.class)}>
         <Slot />
       </div>
     );

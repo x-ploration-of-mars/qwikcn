@@ -9,19 +9,19 @@ const RadioGroup = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
   );
 });
 
-const RadioGroupItem = component$<
-  Omit<QwikIntrinsicElements["radio"], "children">
->(({ ...props }) => {
-  return (
-    <div
-      class={cn(
-        "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-        props.class
-      )}
-    >
-      <input type="radio" {...props} />
-    </div>
-  );
-});
+const RadioGroupItem = component$<QwikIntrinsicElements["radio"]>(
+  ({ children: _, ...props }) => {
+    return (
+      <div
+        class={cn(
+          "aspect-square h-4 w-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
+          props.class
+        )}
+      >
+        <input {...props} type="radio" />
+      </div>
+    );
+  }
+);
 
 export { RadioGroup, RadioGroupItem };

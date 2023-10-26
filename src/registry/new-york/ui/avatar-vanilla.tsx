@@ -4,11 +4,11 @@ import { cn } from "~/lib/utils";
 const Avatar = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
   return (
     <div
+      {...props}
       class={cn(
         "relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full",
         props.class
       )}
-      {...props}
     >
       <Slot />
     </div>
@@ -17,7 +17,7 @@ const Avatar = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
 
 const AvatarImage = component$<Omit<QwikIntrinsicElements["img"], "children">>(
   ({ ...props }) => (
-    <img class={cn("aspect-square h-full w-full", props.class)} {...props} />
+    <img {...props} class={cn("aspect-square h-full w-full", props.class)} />
   )
 );
 
@@ -25,11 +25,11 @@ const AvatarFallback = component$<QwikIntrinsicElements["div"]>(
   ({ ...props }) => {
     return (
       <div
+        {...props}
         class={cn(
           "flex h-full w-full items-center justify-center rounded-full bg-muted",
           props.class
         )}
-        {...props}
       >
         <Slot />
       </div>

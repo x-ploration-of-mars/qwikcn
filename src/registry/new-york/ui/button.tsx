@@ -38,8 +38,8 @@ type ButtonProps = QwikIntrinsicElements["button"] &
 const Button = component$<ButtonProps>(({ variant, size, ...props }) => {
   return (
     <button
-      class={cn(buttonVariants({ variant, size }), props.class)}
       {...props}
+      class={cn(buttonVariants({ variant, size }), props.class)}
     >
       <Slot />
     </button>

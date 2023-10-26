@@ -9,7 +9,7 @@ const Switch = component$<Omit<QwikIntrinsicElements["checkbox"], "children">>(
         props.class
       )}
     >
-      <input type="checkbox" class="hidden" {...props} />
+      <input {...props} type="checkbox" class="hidden" />
       <div
         class={cn(
           "pointer-events-none block h-4 w-4 rounded-full bg-background shadow-lg ring-0 transition-transform",

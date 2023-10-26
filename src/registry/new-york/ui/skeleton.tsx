@@ -5,8 +5,8 @@ export const Skeleton = component$<QwikIntrinsicElements["div"]>(
   ({ ...props }) => {
     return (
       <div
-        class={cn("animate-pulse rounded-md bg-primary/10", props.class)}
         {...props}
+        class={cn("animate-pulse rounded-md bg-primary/10", props.class)}
       />
     );
   }

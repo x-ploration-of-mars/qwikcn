@@ -1,16 +1,16 @@
 import { component$ } from "@builder.io/qwik";
-import { CardsActivityGoal } from "~/registry/new-york/example/cards/activity-goal";
-import { CardsCalendar } from "~/registry/new-york/example/cards/calendar";
-import { CardsChat } from "~/registry/new-york/example/cards/chat";
-import { CardsCookieSettings } from "~/registry/new-york/example/cards/cookie-settings";
-import { CardsCreateAccount } from "~/registry/new-york/example/cards/create-account";
-import { CardsDataTable } from "~/registry/new-york/example/cards/data-table";
-import { CardsMetric } from "~/registry/new-york/example/cards/metric";
-import { CardsPaymentMethod } from "~/registry/new-york/example/cards/payment-method";
-import { CardsReportIssue } from "~/registry/new-york/example/cards/report-issue";
-import { CardsShare } from "~/registry/new-york/example/cards/share";
-import { CardsStats } from "~/registry/new-york/example/cards/stats";
-import { CardsTeamMembers } from "~/registry/new-york/example/cards/team-members";
+import { CardsActivityGoal } from "~/registry/new-york/examples/cards/activity-goal";
+import { CardsCalendar } from "~/registry/new-york/examples/cards/calendar";
+import { CardsChat } from "~/registry/new-york/examples/cards/chat";
+import { CardsCookieSettings } from "~/registry/new-york/examples/cards/cookie-settings";
+import { CardsCreateAccount } from "~/registry/new-york/examples/cards/create-account";
+import { CardsDataTable } from "~/registry/new-york/examples/cards/data-table";
+import { CardsMetric } from "~/registry/new-york/examples/cards/metric";
+import { CardsPaymentMethod } from "~/registry/new-york/examples/cards/payment-method";
+import { CardsReportIssue } from "~/registry/new-york/examples/cards/report-issue";
+import { CardsShare } from "~/registry/new-york/examples/cards/share";
+import { CardsStats } from "~/registry/new-york/examples/cards/stats";
+import { CardsTeamMembers } from "~/registry/new-york/examples/cards/team-members";
 
 export const CardsDemo = component$(() => {
   return (

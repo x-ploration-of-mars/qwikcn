@@ -11,6 +11,7 @@ const Separator = component$<SeparatorProps>(
     return (
       <>
         <QwikUISeparator
+          {...props}
           decorative={decorative}
           orientation={orientation}
           class={cn(
@@ -18,7 +19,6 @@ const Separator = component$<SeparatorProps>(
             orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
             props.class
           )}
-          {...props}
         />
       </>
     );

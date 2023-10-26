@@ -27,7 +27,7 @@ export type BadgeProps = QwikIntrinsicElements["div"] &
   VariantProps<typeof badgeVariants>;
 
 const Badge = component$<BadgeProps>(({ variant, ...props }) => {
-  return <div class={cn(badgeVariants({ variant }), props.class)} {...props} />;
+  return <div {...props} class={cn(badgeVariants({ variant }), props.class)} />;
 });
 
 export { Badge, badgeVariants };

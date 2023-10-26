@@ -32,7 +32,14 @@ module.exports = {
     "@typescript-eslint/no-this-alias": "off",
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
+      },
+    ],
     "@typescript-eslint/consistent-type-imports": "off",
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "no-console": "off",
