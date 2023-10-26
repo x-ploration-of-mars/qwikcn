@@ -51,7 +51,6 @@ const CardContent = component$<QwikIntrinsicElements["div"]>((props) => {
 });
 
 const CardFooter = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
-  console.log("props.class", props.class);
   return (
     <div {...props} class={cn("flex items-center p-6 pt-0", props.class)}>
       <Slot />

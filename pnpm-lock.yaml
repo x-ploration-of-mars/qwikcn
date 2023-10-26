@@ -95,6 +95,9 @@ dependencies:
   '@radix-ui/react-tooltip':
     specifier: ^1.0.7
     version: 1.0.7(@types/react-dom@18.2.14)(@types/react@18.2.30)(react-dom@18.2.0)(react@18.2.0)
+  '@types/estree-jsx':
+    specifier: ^1.0.2
+    version: 1.0.2
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -131,6 +134,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.3.3)
+  unified:
+    specifier: ^10.1.2
+    version: 10.1.2
   valibot:
     specifier: ^0.19.0
     version: 0.19.0

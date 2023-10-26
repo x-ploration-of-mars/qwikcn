@@ -6,6 +6,7 @@ import { qwikReact } from "@builder.io/qwik-react/vite";
 import { partytownVite } from "@builder.io/partytown/utils";
 import path, { join } from "path";
 import { getHighlighter, loadTheme } from "shiki";
+import { recmaProvideComponents } from "./recma-provide-components";
 
 export default defineConfig(async () => {
   const { default: rehypePrettyCode } = await import("rehype-pretty-code");
@@ -31,6 +32,8 @@ export default defineConfig(async () => {
           rehypeAutolinkHeadings: true,
         },
         mdx: {
+          providerImportSource: "~/context/MDXProvider",
+          recmaPlugins: [recmaProvideComponents],
           rehypePlugins: [
             [
               rehypePrettyCode,
