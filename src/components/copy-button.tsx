@@ -33,6 +33,7 @@ const CopyButton = component$<CopyButtonProps>(({ value, ...props }) => {
 
   return (
     <Button
+      {...props}
       size="icon"
       variant="ghost"
       class={cn(
@@ -43,7 +44,6 @@ const CopyButton = component$<CopyButtonProps>(({ value, ...props }) => {
         copyToClipboardWithMeta(value);
         hasCopied.value = true;
       }}
-      {...props}
     >
       <span class="sr-only">Copy</span>
       {hasCopied.value ? (

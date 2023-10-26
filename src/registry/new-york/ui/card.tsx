@@ -25,12 +25,12 @@ const CardHeader = component$<QwikIntrinsicElements["div"]>((props) => {
 
 const CardTitle = component$<QwikIntrinsicElements["div"]>((props) => {
   return (
-    <div
+    <h3
       {...props}
       class={cn("font-semibold leading-none tracking-tight", props.class)}
     >
       <Slot />
-    </div>
+    </h3>
   );
 });
 

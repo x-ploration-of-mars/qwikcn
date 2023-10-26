@@ -13,7 +13,7 @@ export default component$(() => {
           </ScrollArea>
         </aside>
         <div>
-          <article class="cn-prose max-w-6xl">
+          <article class="max-w-6xl">
             <Slot />
           </article>
         </div>

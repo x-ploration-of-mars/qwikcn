@@ -96,99 +96,99 @@
 }
 
 @layer components {
-  .cn-prose h1 {
+  .cn-typography h1 {
     @apply mt-2 text-4xl font-bold scroll-m-20;
   }
   
-  .cn-prose h2 {
+  .cn-typography h2 {
     @apply mt-12 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0 scroll-m-20;
   }
   
-  .cn-prose h3 {
+  .cn-typography h3 {
     @apply mt-8 text-xl font-semibold tracking-tight scroll-m-20;
   }
   
-  .cn-prose h4 {
+  .cn-typography h4 {
     @apply mt-8 text-lg font-semibold tracking-tight scroll-m-20;
   }
   
-  .cn-prose h5 {
+  .cn-typography h5 {
     @apply mt-8 text-lg font-semibold tracking-tight scroll-m-20;
   }
   
-  .cn-prose h6 {
+  .cn-typography h6 {
     @apply mt-8 text-base font-semibold tracking-tight scroll-m-20;
   }
   
-  .cn-prose a {
+  .cn-typography a {
     @apply font-medium underline underline-offset-4;
   }
   
-  .cn-prose p {
+  .cn-typography p {
     @apply leading-7;
   }
   
-  .cn-prose p:not(:first-child) {
+  .cn-typography p:not(:first-child) {
     @apply mt-6;
   }
   
-  .cn-prose ul {
+  .cn-typography ul {
     @apply my-6 ml-6 list-disc;
   }
   
-  .cn-prose ol {
+  .cn-typography ol {
     @apply my-6 ml-6 list-decimal;
   }
   
-  .cn-prose li {
+  .cn-typography li {
     @apply mt-2;
   }
   
-  .cn-prose blockquote {
+  .cn-typography blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
   
-  .cn-prose img {
+  .cn-typography img {
     @apply rounded-md;
   }
   
-  .cn-prose hr {
+  .cn-typography hr {
     @apply my-4 md:my-8;
   }
   
-  .cn-prose table {
+  .cn-typography table {
     @apply my-6 w-full overflow-y-auto;
   }
   
-  .cn-prose tr {
+  .cn-typography tr {
     @apply m-0 border-t p-0 even:bg-muted;
   }
   
-  .cn-prose th {
+  .cn-typography th {
     @apply border px-4 py-2 text-left font-bold;
   }
   
-  .cn-prose th[align="center"] {
+  .cn-typography th[align="center"] {
     @apply text-center;
   }
   
-  .cn-prose th[align="right"] {
+  .cn-typography th[align="right"] {
     @apply text-right;
   }
   
-  .cn-prose td {
+  .cn-typography td {
     @apply border px-4 py-2 text-left;
   }
   
-  .cn-prose td[align="center"] {
+  .cn-typography td[align="center"] {
     @apply text-center;
   }
   
-  .cn-prose td[align="right"] {
+  .cn-typography td[align="right"] {
     @apply text-right;
   }
   
-  .cn-prose pre {
+  .cn-typography pre {
     @apply mb-4 mt-6 max-h-[650px] overflow-x-auto rounded-lg border bg-zinc-950 dark:bg-zinc-900 text-white p-6;
   }
 }
