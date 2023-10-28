@@ -42,6 +42,8 @@ import { NpmCommands } from "~/types/unist";
 import { StyleWrapper } from "~/components/style-wrapper";
 import { CopyButton } from "~/components/copy-button";
 import { CopyNpmCommandButtonQwikified } from "~/components/copy-npm-command-button";
+import { SiteHeader } from "~/components/site-header";
+import { SiteFooter } from "~/components/site-footer";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -389,7 +391,13 @@ export const components: Record<string, Component<any>> = {
 export default component$(() => {
   return (
     <MDXProvider components={components}>
-      <Slot />
+      <div class="relative flex min-h-screen flex-col">
+        <SiteHeader />
+        <div class="flex-1">
+          <Slot />
+        </div>
+        <SiteFooter />
+      </div>
     </MDXProvider>
   );
 });
