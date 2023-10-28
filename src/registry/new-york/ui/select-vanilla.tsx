@@ -83,7 +83,7 @@ const SelectItem = component$<QwikIntrinsicElements["option"]>(
 );
 
 const SelectSeparator = component$<QwikIntrinsicElements["hr"]>(
-  ({ children: _, ...props }) => (
+  ({ ...props }) => (
     <hr class={cn("-mx-1 my-1 h-px bg-muted", props.class)} {...props} />
   )
 );

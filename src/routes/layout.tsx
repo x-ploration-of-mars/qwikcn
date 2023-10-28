@@ -162,18 +162,16 @@ export const components: Record<string, Component<any>> = {
       </blockquote>
     )
   ),
-  img: component$<QwikIntrinsicElements["img"]>(
-    ({ children: _, alt, ...props }) => (
-      <img
-        {...props}
-        width={props.width}
-        height={props.height}
-        class={cn("rounded-md", props.class)}
-        alt={alt}
-      />
-    )
-  ) as Component<any>,
-  hr: component$<QwikIntrinsicElements["hr"]>(({ children: _, ...props }) => (
+  img: component$<QwikIntrinsicElements["img"]>(({ alt, ...props }) => (
+    <img
+      {...props}
+      width={props.width}
+      height={props.height}
+      class={cn("rounded-md", props.class)}
+      alt={alt}
+    />
+  )) as Component<any>,
+  hr: component$<QwikIntrinsicElements["hr"]>(({ ...props }) => (
     <hr {...props} class="my-4 md:my-8" />
   )) as Component<any>,
   table: component$<QwikIntrinsicElements["table"]>(({ ...props }) => (
@@ -211,7 +209,7 @@ export const components: Record<string, Component<any>> = {
   pre: component$<
     QwikIntrinsicElements["pre"] & {
       __style__?: Style["name"];
-      __rawString__: string;
+      __rawString__?: string;
       __withMeta__?: boolean;
       __src__?: string;
     } & NpmCommands
@@ -239,7 +237,7 @@ export const components: Record<string, Component<any>> = {
             <Slot />
 
             <CopyButton
-              value={__rawString__}
+              value={__rawString__ || ""}
               src={__src__}
               class={cn("absolute right-4 top-4 ", __withMeta__ && "top-16")}
             />
@@ -290,7 +288,7 @@ export const components: Record<string, Component<any>> = {
   Callout,
   ComponentExample,
   ComponentPreview,
-  ComponentSource: ComponentSource as Component<any>,
+  ComponentSource,
   CodeBlockWrapper: component$(({ ...props }) => {
     return <CodeBlockWrapperBase {...props} class="rounded-md border" />;
   }),

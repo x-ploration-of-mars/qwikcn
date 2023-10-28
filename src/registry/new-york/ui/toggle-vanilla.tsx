@@ -24,21 +24,19 @@ const toggleVariants = cva(
   }
 );
 
-type ToggleProps = QwikIntrinsicElements["checkbox"] &
+type ToggleProps = QwikIntrinsicElements["input"] &
   VariantProps<typeof toggleVariants>;
 
-export const Toggle = component$<ToggleProps>(
-  ({ children: _, variant, size, ...props }) => (
-    <div
-      class={cn(
-        toggleVariants({
-          variant,
-          size,
-        }),
-        props.class
-      )}
-    >
-      <input {...props} type="checkbox" class="hidden" />
-    </div>
-  )
-);
+export const Toggle = component$<ToggleProps>(({ variant, size, ...props }) => (
+  <div
+    class={cn(
+      toggleVariants({
+        variant,
+        size,
+      }),
+      props.class
+    )}
+  >
+    <input {...props} type="checkbox" class="hidden" />
+  </div>
+));

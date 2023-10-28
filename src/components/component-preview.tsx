@@ -72,7 +72,7 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
           </TabPanel>
           <TabPanel class="border-none">
             <div class="flex flex-col space-y-4">
-              <div class="w-full [&_pre]:p-2 [&_pre]:py-4 [&_pre]:rounded-lg [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
+              <div class="w-full [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
                 <div dangerouslySetInnerHTML={highlighterSignal.value} />
               </div>
             </div>

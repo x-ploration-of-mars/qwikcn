@@ -9,8 +9,8 @@ const RadioGroup = component$<QwikIntrinsicElements["div"]>(({ ...props }) => {
   );
 });
 
-const RadioGroupItem = component$<QwikIntrinsicElements["radio"]>(
-  ({ children: _, ...props }) => {
+const RadioGroupItem = component$<QwikIntrinsicElements["input"]>(
+  ({ ...props }) => {
     return (
       <div
         class={cn(

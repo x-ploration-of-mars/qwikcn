@@ -2,9 +2,7 @@ import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 import { CodeBlockWrapper } from "~/components/code-block-wrapper";
 
-type ComponentSourceProps = QwikIntrinsicElements["details"] & {
-  src: string;
-};
+type ComponentSourceProps = QwikIntrinsicElements["details"];
 
 export const ComponentSource = component$(
   ({ children, ...props }: ComponentSourceProps) => {
