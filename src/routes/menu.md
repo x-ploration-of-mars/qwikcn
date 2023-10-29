@@ -2,11 +2,11 @@
 
 ## Main Navigation
 
-- [Documentation](/docs)
-- [Components](/docs/components/accordion)
-- [Themes](/themes)
-- [Examples](/examples)
-- [Figma](/docs/figma)
+- [Documentation](/docs/)
+- [Components](/docs/components/accordion/)
+- [Themes](/themes/)
+- [Examples](/examples/)
+- [Figma](/docs/figma/)
 - [GitHub](https://github.com/x-ploration-of-mars/qwikcn)
 - [Twitter](https://twitter.com/maiieul)
 
@@ -16,7 +16,7 @@
 
 - [Introduction](/docs/index.mdx)
 - [Installation](/docs/installation/index.mdx)
-- [components.json](/docs/components.json)
+- [components.json](/docs/components-json/index.mdx)
 - [Theming](/docs/theming/index.mdx)
 - [Dark mode](/docs/dark-mode/index.mdx)
 - [CLI](/docs/cli/index.mdx)

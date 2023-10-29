@@ -359,7 +359,7 @@ export const components: Record<string, Component<any>> = {
       </LinkBase>
     );
   }),
-  LinkCard: component$<LinkProps>(({ ...props }) => {
+  LinkedCard: component$<LinkProps>(({ ...props }) => {
     return (
       <LinkBase
         class={cn(

@@ -5,40 +5,10 @@ import { Slot, component$ } from "@builder.io/qwik";
 
 import { MDXProvider } from "~/context/MDXProvider";
 import { components } from "~/components/mdx-components";
-import { ContentMenu, useDocumentHead } from "@builder.io/qwik-city";
+import { useDocumentHead } from "@builder.io/qwik-city";
 import { LuChevronRight } from "@qwikest/icons/lucide";
 import { cn } from "~/lib/utils";
-
-export function createBreadcrumbs(
-  menu: ContentMenu | undefined,
-  pathname: string
-) {
-  if (menu?.items) {
-    for (const breadcrumbA of menu.items) {
-      if (breadcrumbA.href === pathname) {
-        return [breadcrumbA];
-      }
-
-      if (breadcrumbA.items) {
-        for (const breadcrumbB of breadcrumbA.items) {
-          if (breadcrumbB.href === pathname) {
-            return [breadcrumbA, breadcrumbB];
-          }
-
-          if (breadcrumbB.items) {
-            for (const breadcrumbC of breadcrumbB.items) {
-              if (breadcrumbC.href === pathname) {
-                return [breadcrumbA, breadcrumbB, breadcrumbC];
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  return [];
-}
+import { DocsPager } from "~/components/pager";
 
 export default component$(() => {
   // const { menu } = useContent();
@@ -107,7 +77,7 @@ export default component$(() => {
                     <Slot />
                   </article>
                 </div>
-                {/* <DocsPager doc={doc} /> */}
+                <DocsPager />
               </div>
               {/* {doc.toc && (
                 <div class="hidden text-sm xl:block">
