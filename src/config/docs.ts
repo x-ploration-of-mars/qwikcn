@@ -29,13 +29,11 @@ export const docsConfig: DocsConfig = {
     },
     {
       title: "GitHub",
-      href: "https://github.com/shadcn/ui",
-      external: true,
+      href: "https://github.com/x-ploration-of-mars/qwikcn",
     },
     {
       title: "Twitter",
-      href: "https://twitter.com/shadcn",
-      external: true,
+      href: "https://twitter.com/maiieul",
     },
   ],
   sidebarNav: [

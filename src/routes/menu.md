@@ -1,6 +1,6 @@
-# Fake Menu
+# Qwikcn
 
-## Test
+## Main Navigation
 
 - [Documentation](/docs)
 - [Components](/docs/components/accordion)
@@ -10,7 +10,7 @@
 - [GitHub](https://github.com/x-ploration-of-mars/qwikcn)
 - [Twitter](https://twitter.com/maiieul)
 
-## Test2
+## Side Navigation
 
 ### Getting started
 

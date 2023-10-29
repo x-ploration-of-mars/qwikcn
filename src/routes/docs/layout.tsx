@@ -1,19 +1,52 @@
 import { docsConfig } from "~/config/docs";
 import { DocsSidebarNav } from "~/components/docs-sidebar-nav";
 import { ScrollArea } from "~/registry/new-york/ui/scroll-area-qwikified";
-import { Slot, component$, useTask$, useVisibleTask$ } from "@builder.io/qwik";
+import { Slot, component$ } from "@builder.io/qwik";
 
 import { MDXProvider } from "~/context/MDXProvider";
 import { components } from "~/components/mdx-components";
+import { ContentMenu, useDocumentHead } from "@builder.io/qwik-city";
 import { LuChevronRight } from "@qwikest/icons/lucide";
-import { useContent } from "@builder.io/qwik-city";
+import { cn } from "~/lib/utils";
+
+export function createBreadcrumbs(
+  menu: ContentMenu | undefined,
+  pathname: string
+) {
+  if (menu?.items) {
+    for (const breadcrumbA of menu.items) {
+      if (breadcrumbA.href === pathname) {
+        return [breadcrumbA];
+      }
+
+      if (breadcrumbA.items) {
+        for (const breadcrumbB of breadcrumbA.items) {
+          if (breadcrumbB.href === pathname) {
+            return [breadcrumbA, breadcrumbB];
+          }
+
+          if (breadcrumbB.items) {
+            for (const breadcrumbC of breadcrumbB.items) {
+              if (breadcrumbC.href === pathname) {
+                return [breadcrumbA, breadcrumbB, breadcrumbC];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return [];
+}
 
 export default component$(() => {
-  const { menu } = useContent();
+  // const { menu } = useContent();
+  const { title, meta } = useDocumentHead();
+  // const location = useLocation();
+  // const breadcrumbs = createBreadcrumbs(menu, location.url.pathname);
 
-  useTask$(() => {
-    console.log("menu", menu);
-  });
+  const description = meta.find((m) => m.name === "description")?.content;
 
   return (
     <MDXProvider components={components}>
@@ -25,28 +58,26 @@ export default component$(() => {
             </ScrollArea>
           </aside>
           <div>
-            {/* <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
+            <main class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]">
               <div class="mx-auto w-full min-w-0">
                 <div class="mb-4 flex items-center space-x-1 text-sm text-muted-foreground">
                   <div class="overflow-hidden text-ellipsis whitespace-nowrap">
                     Docs
                   </div>
                   <LuChevronRight class="h-4 w-4" />
-                  <div class="font-medium text-foreground">{doc.title}</div>
+                  <div class="font-medium text-foreground">{title}</div>
                 </div>
                 <div class="space-y-2">
                   <h1
                     class={cn("scroll-m-20 text-4xl font-bold tracking-tight")}
                   >
-                    {doc.title}
+                    {title}
                   </h1>
-                  {doc.description && (
-                    <p class="text-lg text-muted-foreground">
-                      {doc.description}
-                    </p>
+                  {description && (
+                    <p class="text-lg text-muted-foreground">{description}</p>
                   )}
                 </div>
-                {doc.radix ? (
+                {/* {doc.radix ? (
                   <div class="flex items-center space-x-2 pt-4">
                     {doc.radix?.link && (
                       <Link
@@ -70,15 +101,15 @@ export default component$(() => {
                       </Link>
                     )}
                   </div>
-                ) : null}
+                ) : null} */}
                 <div class="pb-12 pt-8">
                   <article class="max-w-6xl">
                     <Slot />
                   </article>
                 </div>
-                <DocsPager doc={doc} />
+                {/* <DocsPager doc={doc} /> */}
               </div>
-              {doc.toc && (
+              {/* {doc.toc && (
                 <div class="hidden text-sm xl:block">
                   <div class="sticky top-16 -mt-10 pt-4">
                     <ScrollArea className="pb-10">
@@ -88,11 +119,8 @@ export default component$(() => {
                     </ScrollArea>
                   </div>
                 </div>
-              )}
-            </main> */}
-            <article class="max-w-6xl">
-              <Slot />
-            </article>
+              )} */}
+            </main>
           </div>
         </div>
       </div>
