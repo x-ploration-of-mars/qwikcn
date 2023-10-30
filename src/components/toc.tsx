@@ -1,5 +1,4 @@
 import { cn } from "~/lib/utils";
-import { useMounted } from "~/hooks/use-mounted";
 import {
   QwikIntrinsicElements,
   component$,
@@ -13,9 +12,8 @@ export const DashboardTableOfContents = component$(
     const itemIds = headings.map((item) => item.id);
     console.log("itemIds", itemIds);
     const activeHeading = useActiveItem(itemIds);
-    const mounted = useMounted();
 
-    if (headings.length === 0 || !mounted.value) {
+    if (headings.length === 0) {
       return null;
     }
 

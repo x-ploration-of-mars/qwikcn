@@ -1,10 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import {
-  ContentMenu,
-  Link,
-  useContent,
-  useLocation,
-} from "@builder.io/qwik-city";
+import { ContentMenu, useContent, useLocation } from "@builder.io/qwik-city";
 import { LuChevronLeft, LuChevronRight } from "@qwikest/icons/lucide";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "~/registry/new-york/ui/button";

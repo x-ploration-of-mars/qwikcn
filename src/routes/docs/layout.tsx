@@ -11,6 +11,8 @@ import { cn } from "~/lib/utils";
 import { DocsPager } from "~/components/pager";
 import { DashboardTableOfContents } from "~/components/toc";
 
+import "~/mdx.css";
+
 export default component$(() => {
   const { headings } = useContent();
   const head = useDocumentHead();
