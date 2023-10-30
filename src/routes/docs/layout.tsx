@@ -5,15 +5,18 @@ import { Slot, component$ } from "@builder.io/qwik";
 
 import { MDXProvider } from "~/context/MDXProvider";
 import { components } from "~/components/mdx-components";
-import { useDocumentHead } from "@builder.io/qwik-city";
+import { useContent, useDocumentHead } from "@builder.io/qwik-city";
 import { LuChevronRight } from "@qwikest/icons/lucide";
 import { cn } from "~/lib/utils";
 import { DocsPager } from "~/components/pager";
+import { DashboardTableOfContents } from "~/components/toc";
 
 export default component$(() => {
-  // const { menu } = useContent();
-  const { title, meta } = useDocumentHead();
+  const { headings } = useContent();
+  const head = useDocumentHead();
+  const { title, meta } = head;
   // const location = useLocation();
+
   // const breadcrumbs = createBreadcrumbs(menu, location.url.pathname);
 
   const description = meta.find((m) => m.name === "description")?.content;
@@ -79,17 +82,17 @@ export default component$(() => {
                 </div>
                 <DocsPager />
               </div>
-              {/* {doc.toc && (
+              {headings && (
                 <div class="hidden text-sm xl:block">
                   <div class="sticky top-16 -mt-10 pt-4">
                     <ScrollArea className="pb-10">
                       <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
-                        <DashboardTableOfContents toc={toc} />
+                        <DashboardTableOfContents headings={headings} />
                       </div>
                     </ScrollArea>
                   </div>
                 </div>
-              )} */}
+              )}
             </main>
           </div>
         </div>

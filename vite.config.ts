@@ -33,7 +33,7 @@ export default defineConfig(async () => {
         },
         mdx: {
           providerImportSource: "~/context/MDXProvider",
-          recmaPlugins: [recmaProvideComponents],
+          recmaPlugins: [recmaProvideComponents as any],
           rehypePlugins: [
             [
               rehypePrettyCode,

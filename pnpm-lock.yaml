@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@fontsource-variable/inter':
+    specifier: ^5.0.15
+    version: 5.0.15
   '@modular-forms/qwik':
     specifier: ^0.21.0
     version: 0.21.0(@builder.io/qwik-city@1.2.15)(@builder.io/qwik@1.2.15)
@@ -582,6 +585,10 @@ packages:
 
   /@floating-ui/utils@0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
+    dev: false
+
+  /@fontsource-variable/inter@5.0.15:
+    resolution: {integrity: sha512-CdQPQQgOVxg6ifmbrqYZeUqtQf7p2wPn6EvJ4M+vdNnsmYZgYwPPPQDNlIOU7LCUlSGaN26v6H0uA030WKn61g==}
     dev: false
 
   /@humanwhocodes/config-array@0.11.13:

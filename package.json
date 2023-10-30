@@ -56,6 +56,7 @@
     "vite-tsconfig-paths": "4.2.1"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.0.15",
     "@modular-forms/qwik": "^0.21.0",
     "@qwik-ui/headless": "^0.1.17",
     "@qwikest/icons": "^0.0.13",
