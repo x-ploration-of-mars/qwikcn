@@ -2,30 +2,43 @@ import { cn } from "~/lib/utils";
 import { StyleSwitcher } from "~/components/style-switcher";
 import { ThemeWrapper } from "~/components/theme-wrapper";
 import {
+  Component,
   QwikIntrinsicElements,
-  Slot,
   component$,
   useSignal,
   useTask$,
 } from "@builder.io/qwik";
 import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 import { setHighlighter } from "~/lib/utils";
-import { CopyButton } from "./copy-button";
+import { useConfig } from "~/hooks/use-config";
+const components = import.meta.glob("/src/registry/new-york/examples/*", {
+  import: "default",
+  eager: true,
+});
+const componentsCodes = import.meta.glob("/src/registry/new-york/examples/*", {
+  as: "raw",
+  eager: true,
+});
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
+  name: string;
   align?: "center" | "start" | "end";
   code?: string;
   language?: "tsx" | "html" | "css";
 };
 
 export const ComponentPreview = component$<ComponentPreviewProps>(
-  ({ align = "center", code, language = "tsx", ...props }) => {
-    const highlighterSignal = useSignal<string>();
+  ({ name, align = "center", language = "tsx", ...props }) => {
+    const config = useConfig();
+    const componentPath = `/src/registry/${config.value.style}/examples/${name}.tsx`;
+    const Component = components[componentPath] as Component<any>;
 
+    const highlighterSignal = useSignal<string>();
     useTask$(async () => {
       const highlighter = await setHighlighter();
+      const code = componentsCodes[componentPath];
 
-      highlighterSignal.value = highlighter.codeToHtml(code || "", {
+      highlighterSignal.value = highlighter.codeToHtml(code, {
         lang: language,
       });
     });
@@ -47,6 +60,14 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
           <TabPanel class="relative rounded-md border">
             <div class="flex items-center justify-between p-4">
               <StyleSwitcher />
+              {/* {extractedClassNames ? (
+                <CopyWithClassNamesQwikified
+                  value={codeString.value}
+                  extractedClasses={extractedClassNames}
+                />
+              ) : (
+                codeString.value && <CopyButton value={codeString.value} />
+              )} */}
             </div>
             <ThemeWrapper defaultTheme="zinc">
               <div
@@ -59,15 +80,11 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
                   }
                 )}
               >
-                <Slot name="preview" />
+                <Component />
               </div>
             </ThemeWrapper>
           </TabPanel>
-          <TabPanel class="border-none relative">
-            <CopyButton
-              value={code || ""}
-              class={cn("absolute right-6 top-4")}
-            />
+          <TabPanel class="border-none">
             <div class="flex flex-col space-y-4">
               <div class="w-full [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
                 <div dangerouslySetInnerHTML={highlighterSignal.value} />

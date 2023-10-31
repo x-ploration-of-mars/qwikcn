@@ -227,7 +227,7 @@ export const components: Record<string, Component<any>> = {
             <CopyButton
               value={__rawString__ || ""}
               src={__src__}
-              class={cn("absolute right-4 top-4 ", __withMeta__ && "top-16")}
+              class={cn("absolute right-4 top-4")}
             />
 
             {__npmCommand__ &&
@@ -241,10 +241,7 @@ export const components: Record<string, Component<any>> = {
                     __pnpmCommand__,
                     __bunCommand__,
                   }}
-                  className={cn(
-                    "absolute right-4 top-4",
-                    __withMeta__ && "top-16"
-                  )}
+                  className={cn("absolute right-4 top-4")}
                 />
               )}
           </pre>
