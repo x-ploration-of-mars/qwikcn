@@ -10,7 +10,6 @@ import { ContentHeading } from "@builder.io/qwik-city";
 export const DashboardTableOfContents = component$(
   ({ headings }: { headings: ContentHeading[] }) => {
     const itemIds = headings.map((item) => item.id);
-    console.log("itemIds", itemIds);
     const activeHeading = useActiveItem(itemIds);
 
     if (headings.length === 0) {

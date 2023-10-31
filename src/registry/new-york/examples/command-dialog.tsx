@@ -1,6 +1,7 @@
-"use client"
+/** @jsxImportSource react */
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   CalendarIcon,
   EnvelopeClosedIcon,
@@ -8,7 +9,7 @@ import {
   GearIcon,
   PersonIcon,
   RocketIcon,
-} from "@radix-ui/react-icons"
+} from "@radix-ui/react-icons";
 
 import {
   CommandDialog,
@@ -19,22 +20,23 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/registry/new-york/ui/command"
+} from "~/registry/new-york/ui/command-react";
+import { qwikify$ } from "@builder.io/qwik-react";
 
-export default function CommandDialogDemo() {
-  const [open, setOpen] = React.useState(false)
+function ReactCommandDialogDemo() {
+  const [open, setOpen] = React.useState(false);
 
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "j" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        setOpen((open) => !open)
+        e.preventDefault();
+        setOpen((open) => !open);
       }
-    }
+    };
 
-    document.addEventListener("keydown", down)
-    return () => document.removeEventListener("keydown", down)
-  }, [])
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, []);
 
   return (
     <>
@@ -83,5 +85,9 @@ export default function CommandDialogDemo() {
         </CommandList>
       </CommandDialog>
     </>
-  )
+  );
 }
+
+const CommandDialogDemo = qwikify$(ReactCommandDialogDemo);
+
+export default CommandDialogDemo;

@@ -1,8 +1,10 @@
-"use client"
+/** @jsxImportSource react */
+"use client";
 
-import * as React from "react"
+import { qwikify$ } from "@builder.io/qwik-react";
+import * as React from "react";
 
-import { Button } from "@/registry/new-york/ui/button"
+import { Button } from "~/registry/new-york/ui/button-react";
 import {
   Command,
   CommandEmpty,
@@ -10,17 +12,17 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "@/registry/new-york/ui/command"
+} from "~/registry/new-york/ui/command-react";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/registry/new-york/ui/popover"
+} from "~/registry/new-york/ui/popover-react";
 
 type Status = {
-  value: string
-  label: string
-}
+  value: string;
+  label: string;
+};
 
 const statuses: Status[] = [
   {
@@ -43,13 +45,13 @@ const statuses: Status[] = [
     value: "canceled",
     label: "Canceled",
   },
-]
+];
 
-export default function ComboboxPopover() {
-  const [open, setOpen] = React.useState(false)
+function ReactComboboxPopover() {
+  const [open, setOpen] = React.useState(false);
   const [selectedStatus, setSelectedStatus] = React.useState<Status | null>(
     null
-  )
+  );
 
   return (
     <div className="flex items-center space-x-4">
@@ -73,8 +75,8 @@ export default function ComboboxPopover() {
                       setSelectedStatus(
                         statuses.find((priority) => priority.value === value) ||
                           null
-                      )
-                      setOpen(false)
+                      );
+                      setOpen(false);
                     }}
                   >
                     {status.label}
@@ -86,5 +88,9 @@ export default function ComboboxPopover() {
         </PopoverContent>
       </Popover>
     </div>
-  )
+  );
 }
+
+const ComboboxPopover = qwikify$(ReactComboboxPopover);
+
+export default ComboboxPopover;

@@ -2,29 +2,43 @@ import { cn } from "~/lib/utils";
 import { StyleSwitcher } from "~/components/style-switcher";
 import { ThemeWrapper } from "~/components/theme-wrapper";
 import {
+  Component,
   QwikIntrinsicElements,
-  Slot,
   component$,
   useSignal,
   useTask$,
 } from "@builder.io/qwik";
 import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 import { setHighlighter } from "~/lib/utils";
+import { useConfig } from "~/hooks/use-config";
+const components = import.meta.glob("/src/registry/new-york/examples/*", {
+  import: "default",
+  eager: true,
+});
+const componentsCodes = import.meta.glob("/src/registry/new-york/examples/*", {
+  as: "raw",
+  eager: true,
+});
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
+  name: string;
   align?: "center" | "start" | "end";
   code?: string;
   language?: "tsx" | "html" | "css";
 };
 
 export const ComponentPreview = component$<ComponentPreviewProps>(
-  ({ align = "center", code, language = "tsx", ...props }) => {
+  ({ name, align = "center", language = "tsx", ...props }) => {
+    const config = useConfig();
+    const componentPath = `/src/registry/${config.value.style}/examples/${name}.tsx`;
+    const Component = components[componentPath] as Component<any>;
+
     const highlighterSignal = useSignal<string>();
-
-    useTask$(async function createHighlightedCode() {
+    useTask$(async () => {
       const highlighter = await setHighlighter();
+      const code = componentsCodes[componentPath];
 
-      highlighterSignal.value = highlighter.codeToHtml(code || "", {
+      highlighterSignal.value = highlighter.codeToHtml(code, {
         lang: language,
       });
     });
@@ -66,7 +80,7 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
                   }
                 )}
               >
-                <Slot name="preview" />
+                <Component />
               </div>
             </ThemeWrapper>
           </TabPanel>

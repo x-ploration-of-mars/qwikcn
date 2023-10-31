@@ -1,12 +1,7 @@
 import { SidebarNavItem } from "~/types/nav";
 
 import { cn } from "~/lib/utils";
-import {
-  ContentMenu,
-  Link,
-  useContent,
-  useLocation,
-} from "@builder.io/qwik-city";
+import { ContentMenu, useContent, useLocation } from "@builder.io/qwik-city";
 import { component$ } from "@builder.io/qwik";
 
 export type DocsSidebarNavProps = {
@@ -43,8 +38,7 @@ export const DocsSidebarNavItems = component$(
       <div class="grid grid-flow-row auto-rows-max text-sm">
         {items.map((item, index) =>
           item.href ? (
-            <Link
-              prefetch
+            <a
               key={index}
               href={item.href}
               class={cn(
@@ -57,7 +51,7 @@ export const DocsSidebarNavItems = component$(
               rel={isExternal(item) ? "noreferrer" : ""}
             >
               {item.text}
-            </Link>
+            </a>
           ) : (
             <span
               key={index}

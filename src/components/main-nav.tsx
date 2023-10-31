@@ -26,7 +26,7 @@ export const MainNav = component$(() => {
           Documentation
         </Link>
         <Link
-          href="/docs/components"
+          href="/docs/components/accordion"
           class={cn(
             "transition-colors hover:text-foreground/80",
             location.url.pathname.startsWith("/docs/components")

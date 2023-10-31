@@ -6,8 +6,8 @@ import {
 } from "@builder.io/qwik-city";
 import { RouterHead } from "./components/router-head/router-head";
 
-import "./global.css";
 import "@fontsource-variable/inter";
+import "./global.css";
 import { QwikPartytown } from "./components/partytown/partytown";
 
 export default component$(() => {

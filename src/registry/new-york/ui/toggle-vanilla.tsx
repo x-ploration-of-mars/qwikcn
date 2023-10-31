@@ -1,4 +1,4 @@
-import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
+import { QwikIntrinsicElements, Slot, component$ } from "@builder.io/qwik";
 import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "~/lib/utils";
 
@@ -24,7 +24,7 @@ const toggleVariants = cva(
   }
 );
 
-type ToggleProps = QwikIntrinsicElements["input"] &
+type ToggleProps = Omit<QwikIntrinsicElements["input"], "children"> &
   VariantProps<typeof toggleVariants>;
 
 export const Toggle = component$<ToggleProps>(({ variant, size, ...props }) => (
@@ -38,5 +38,6 @@ export const Toggle = component$<ToggleProps>(({ variant, size, ...props }) => (
     )}
   >
     <input {...props} type="checkbox" class="hidden" />
+    <Slot />
   </div>
 ));

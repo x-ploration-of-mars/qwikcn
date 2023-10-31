@@ -1,3 +1,5 @@
+/** @jsxImportSource react */
+import { qwikify$ } from "@builder.io/qwik-react";
 import {
   CalendarIcon,
   EnvelopeClosedIcon,
@@ -5,7 +7,7 @@ import {
   GearIcon,
   PersonIcon,
   RocketIcon,
-} from "@radix-ui/react-icons"
+} from "@radix-ui/react-icons";
 
 import {
   Command,
@@ -16,9 +18,9 @@ import {
   CommandList,
   CommandSeparator,
   CommandShortcut,
-} from "@/registry/new-york/ui/command"
+} from "~/registry/new-york/ui/command-react";
 
-export default function CommandDemo() {
+function ReactCommandDemo() {
   return (
     <Command className="rounded-lg border shadow-md">
       <CommandInput placeholder="Type a command or search..." />
@@ -58,5 +60,9 @@ export default function CommandDemo() {
         </CommandGroup>
       </CommandList>
     </Command>
-  )
+  );
 }
+
+const CommandDemo = qwikify$(() => <ReactCommandDemo />);
+
+export default CommandDemo;

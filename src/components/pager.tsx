@@ -21,7 +21,6 @@ export const DocsPager = component$(() => {
   const nextPage =
     index === flattenedMenu.length - 1 ? null : flattenedMenu[index + 1];
 
-  console.log(previousPage, nextPage);
   return (
     <div class="flex flex-row items-center justify-between">
       {previousPage?.href && (

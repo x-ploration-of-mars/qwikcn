@@ -1,3 +1,5 @@
+/** @jsxImportSource react */
+import { qwikify$ } from "@builder.io/qwik-react";
 import {
   ContextMenu,
   ContextMenuCheckboxItem,
@@ -12,9 +14,9 @@ import {
   ContextMenuSubContent,
   ContextMenuSubTrigger,
   ContextMenuTrigger,
-} from "~/registry/new-york/ui/context-menu";
+} from "~/registry/new-york/ui/context-menu-react";
 
-export default function ContextMenuDemo() {
+function ReactContextMenuDemo() {
   return (
     <ContextMenu>
       <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
@@ -65,3 +67,7 @@ export default function ContextMenuDemo() {
     </ContextMenu>
   );
 }
+
+const ContextMenuDemo = qwikify$(ReactContextMenuDemo);
+
+export default ContextMenuDemo;
