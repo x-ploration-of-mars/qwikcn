@@ -2,8 +2,8 @@ import { cn } from "~/lib/utils";
 import { StyleSwitcher } from "~/components/style-switcher";
 import { ThemeWrapper } from "~/components/theme-wrapper";
 import {
+  Component,
   QwikIntrinsicElements,
-  Slot,
   component$,
   useSignal,
   useTask$,
@@ -11,23 +11,44 @@ import {
 import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 import { setHighlighter } from "~/lib/utils";
 import { CopyButton } from "./copy-button";
+import { useConfig } from "~/hooks/use-config";
+
+const components = import.meta.glob("/src/registry/new-york/examples/*", {
+  import: "default",
+});
+
+const componentsRaw = import.meta.glob("/src/registry/new-york/examples/*", {
+  as: "raw",
+});
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
+  name: string;
   align?: "center" | "start" | "end";
-  code?: string;
   language?: "tsx" | "html" | "css";
 };
 
 export const ComponentPreview = component$<ComponentPreviewProps>(
-  ({ align = "center", code, language = "tsx", ...props }) => {
+  ({ name, align = "center", language = "tsx", ...props }) => {
+    const config = useConfig();
     const highlighterSignal = useSignal<string>();
+
+    const componentPath = `/src/registry/${config.value.style}/examples/${name}.tsx`;
+
+    const Component = useSignal<Component<any>>();
+    const ComponentRaw = useSignal<string>();
 
     useTask$(async () => {
       const highlighter = await setHighlighter();
 
-      highlighterSignal.value = highlighter.codeToHtml(code || "", {
-        lang: language,
-      });
+      Component.value = (await components[componentPath]()) as Component<any>;
+      ComponentRaw.value = (await componentsRaw[componentPath]()) as string;
+
+      highlighterSignal.value = highlighter.codeToHtml(
+        ComponentRaw.value || "",
+        {
+          lang: language,
+        }
+      );
     });
 
     return (
@@ -59,13 +80,13 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
                   }
                 )}
               >
-                <Slot name="preview" />
+                {Component.value && <Component.value />}
               </div>
             </ThemeWrapper>
           </TabPanel>
           <TabPanel class="border-none relative">
             <CopyButton
-              value={code || ""}
+              value={ComponentRaw.value || ""}
               class={cn("absolute right-6 top-4")}
             />
             <div class="flex flex-col space-y-4">

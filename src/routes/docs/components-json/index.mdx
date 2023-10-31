@@ -3,9 +3,6 @@ title: components.json
 description: Configuration for your project.
 ---
 
-import CardWithFormPreview from "~/registry/new-york/examples/card-with-form";
-import CardWithFormCode from "~/registry/new-york/examples/card-with-form?raw";
-
 The `components.json` file holds configuration for your project.
 
 We use it to understand how your project is set up and how to generate components customized for your project.
@@ -44,10 +41,7 @@ The style for your components. **This cannot be changed after initialization.**
 }
 ```
 
-<ComponentPreview code={CardWithFormCode}>
-  <CardWithFormPreview q:slot="preview" />
-</ComponentPreview>
-
+<ComponentPreview name="card-with-form" />
 ## tailwind
 
 Configuration to help the CLI understand how Tailwind CSS is set up in your project.
