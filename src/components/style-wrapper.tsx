@@ -9,7 +9,7 @@ type StyleWrapperProps = QwikIntrinsicElements["div"] & {
 export const StyleWrapper = component$(({ styleName }: StyleWrapperProps) => {
   const config = useConfig();
 
-  if (!styleName || config.value.style === styleName) {
+  if (config.value.style === styleName) {
     return (
       <>
         <Slot />

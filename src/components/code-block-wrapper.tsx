@@ -17,8 +17,8 @@ type CodeBlockProps = QwikIntrinsicElements["details"] & {
   expandButtonTitle?: string;
 };
 
-const CodeBlockWrapper = component$(
-  ({ expandButtonTitle = "View Code", ...props }: CodeBlockProps) => {
+const CodeBlockWrapper = component$<CodeBlockProps>(
+  ({ expandButtonTitle = "View Code", ...props }) => {
     const isOpened = useSignal(false);
 
     return (

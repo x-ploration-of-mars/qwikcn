@@ -1,17 +1,15 @@
-import { QwikIntrinsicElements, component$ } from "@builder.io/qwik";
+import { PropsOf, Slot, component$ } from "@builder.io/qwik";
 import { cn } from "~/lib/utils";
 import { CodeBlockWrapper } from "~/components/code-block-wrapper";
 
-type ComponentSourceProps = QwikIntrinsicElements["details"];
-
-export const ComponentSource = component$(
-  ({ children, ...props }: ComponentSourceProps) => {
+export const ComponentSource = component$<PropsOf<typeof CodeBlockWrapper>>(
+  ({ ...props }) => {
     return (
       <CodeBlockWrapper
         expandButtonTitle="Expand"
         class={cn("my-6 overflow-hidden rounded-md", props.class)}
       >
-        {children}
+        <Slot />
       </CodeBlockWrapper>
     );
   }

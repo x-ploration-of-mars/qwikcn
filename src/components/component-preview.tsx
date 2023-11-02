@@ -22,7 +22,7 @@ const componentsRaw = import.meta.glob("/src/registry/new-york/examples/*", {
 });
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
-  name: string;
+  name?: string;
   align?: "center" | "start" | "end";
   language?: "tsx" | "html" | "css";
 };

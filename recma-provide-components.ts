@@ -10,7 +10,7 @@ import type {
 } from "estree-jsx";
 
 function isNamedFunction(node: FunctionDeclaration, name: string) {
-  return Boolean(node.id && node.id.name === name);
+  return Boolean(node.id.name === name);
 }
 
 export const recmaProvideComponents: Plugin<any, Program> = () => {

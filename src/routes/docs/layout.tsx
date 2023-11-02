@@ -1,4 +1,3 @@
-import { docsConfig } from "~/config/docs";
 import { DocsSidebarNav } from "~/components/docs-sidebar-nav";
 import { ScrollArea } from "~/registry/new-york/ui/scroll-area-qwikified";
 import { Slot, component$ } from "@builder.io/qwik";

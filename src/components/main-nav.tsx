@@ -18,7 +18,7 @@ export const MainNav = component$(() => {
           href="/docs"
           class={cn(
             "transition-colors hover:text-foreground/80",
-            location.url.pathname === "/docs"
+            location.url.pathname === "/docs/"
               ? "text-foreground"
               : "text-foreground/60"
           )}
@@ -29,7 +29,7 @@ export const MainNav = component$(() => {
           href="/docs/components/accordion"
           class={cn(
             "transition-colors hover:text-foreground/80",
-            location.url.pathname.startsWith("/docs/components")
+            location.url.pathname.startsWith("/docs/components/")
               ? "text-foreground"
               : "text-foreground/60"
           )}
@@ -40,7 +40,7 @@ export const MainNav = component$(() => {
           href="/themes"
           class={cn(
             "transition-colors hover:text-foreground/80",
-            location.url.pathname.startsWith("/themes")
+            location.url.pathname.startsWith("/themes/")
               ? "text-foreground"
               : "text-foreground/60"
           )}
@@ -51,7 +51,7 @@ export const MainNav = component$(() => {
           href="/examples"
           class={cn(
             "transition-colors hover:text-foreground/80",
-            location.url.pathname.startsWith("/examples")
+            location.url.pathname.startsWith("/examples/")
               ? "text-foreground"
               : "text-foreground/60"
           )}

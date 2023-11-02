@@ -4,13 +4,11 @@ import { CardsCalendar } from "~/registry/new-york/examples/cards/calendar";
 import { CardsChat } from "~/registry/new-york/examples/cards/chat";
 import { CardsCookieSettings } from "~/registry/new-york/examples/cards/cookie-settings";
 import { CardsCreateAccount } from "~/registry/new-york/examples/cards/create-account";
-import { CardsDataTable } from "~/registry/new-york/examples/cards/data-table";
 import { CardsMetric } from "~/registry/new-york/examples/cards/metric";
 import { CardsPaymentMethod } from "~/registry/new-york/examples/cards/payment-method";
 import { CardsReportIssue } from "~/registry/new-york/examples/cards/report-issue";
 import { CardsShare } from "~/registry/new-york/examples/cards/share";
 import { CardsStats } from "~/registry/new-york/examples/cards/stats";
-import { CardsTeamMembers } from "~/registry/new-york/examples/cards/team-members";
 
 export const CardsDemo = component$(() => {
   return (
@@ -28,7 +26,7 @@ export const CardsDemo = component$(() => {
         </div>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           <div class="space-y-4 xl:space-y-4">
-            <CardsTeamMembers />
+            {/* <CardsTeamMembers /> */}
             <CardsCookieSettings />
             <CardsPaymentMethod />
           </div>
@@ -51,9 +49,7 @@ export const CardsDemo = component$(() => {
             <CardsMetric />
           </div>
         </div>
-        <div class="hidden md:block">
-          <CardsDataTable />
-        </div>
+        <div class="hidden md:block">{/* <CardsDataTable /> */}</div>
         <CardsShare />
         <div class="xl:hidden">
           <CardsReportIssue />

@@ -20,6 +20,15 @@ export default defineConfig(async () => {
   };
 
   return {
+    // build: {
+    //   rollupOptions: {
+    //     external: [
+    //       "@floating-ui/dom",
+    //       "country-list-json",
+    //       "libphonenumber-js",
+    //     ],
+    //   },
+    // },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",
@@ -34,7 +43,7 @@ export default defineConfig(async () => {
         },
         mdx: {
           providerImportSource: "~/context/MDXProvider",
-          recmaPlugins: [recmaProvideComponents as any],
+          recmaPlugins: [recmaProvideComponents],
           rehypePlugins: [
             () => (tree) => {
               visit(tree, (node) => {
