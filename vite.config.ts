@@ -20,15 +20,14 @@ export default defineConfig(async () => {
   };
 
   return {
-    // build: {
-    //   rollupOptions: {
-    //     external: [
-    //       "@floating-ui/dom",
-    //       "country-list-json",
-    //       "libphonenumber-js",
-    //     ],
-    //   },
-    // },
+    build: {
+      rollupOptions: {
+        output: process.env.npm_lifecycle_event === "build.preview" ? {
+          chunkFileNames:
+          '[name]-[hash].mjs',
+        }: undefined,
+      },
+    },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",

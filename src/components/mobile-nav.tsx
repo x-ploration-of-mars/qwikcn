@@ -85,7 +85,7 @@ interface MobileLinkProps extends LinkProps {
 }
 
 const MobileLink = component$<MobileLinkProps>(
-  ({ href, onOpenChange$, ...props }: MobileLinkProps) => {
+  ({ href, onOpenChange$, ...props }) => {
     const nav = useNavigate();
     return (
       <Link
