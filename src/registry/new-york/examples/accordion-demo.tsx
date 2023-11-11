@@ -1,4 +1,4 @@
-import { PropsOf, component$ } from "@builder.io/qwik";
+import { component$ } from "@builder.io/qwik";
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "~/registry/new-york/ui/accordion";
 
-export default component$<PropsOf<typeof Accordion>>(() => {
+export default component$(() => {
   return (
     <Accordion behavior="single" collapsible class="w-full">
       <AccordionItem id="item-1">

@@ -20,14 +20,6 @@ export default defineConfig(async () => {
   };
 
   return {
-    build: {
-      rollupOptions: {
-        output: process.env.npm_lifecycle_event === "build.preview" ? {
-          chunkFileNames:
-          '[name]-[hash].mjs',
-        }: undefined,
-      },
-    },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",

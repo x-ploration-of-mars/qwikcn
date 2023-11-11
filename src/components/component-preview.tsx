@@ -12,14 +12,20 @@ import { Tab, TabList, TabPanel, Tabs } from "@qwik-ui/headless";
 import { setHighlighter } from "~/lib/utils";
 import { CopyButton } from "./copy-button";
 import { useConfig } from "~/hooks/use-config";
+import { isDev } from "@builder.io/qwik/build";
 
-const components = import.meta.glob("/src/registry/new-york/examples/*", {
+const components: any = import.meta.glob("/src/registry/new-york/examples/*", {
   import: "default",
+  eager: isDev ? false : true,
 });
 
-const componentsRaw = import.meta.glob("/src/registry/new-york/examples/*", {
-  as: "raw",
-});
+const componentsRaw: any = import.meta.glob(
+  "/src/registry/new-york/examples/*",
+  {
+    as: "raw",
+    eager: isDev ? false : true,
+  }
+);
 
 type ComponentPreviewProps = QwikIntrinsicElements["div"] & {
   name?: string;
@@ -40,9 +46,13 @@ export const ComponentPreview = component$<ComponentPreviewProps>(
     useTask$(async () => {
       const highlighter = await setHighlighter();
 
-      Component.value = (await components[componentPath]()) as Component<any>;
-      ComponentRaw.value = (await componentsRaw[componentPath]()) as string;
-
+      if (isDev) {
+        Component.value = await components[componentPath]();
+        ComponentRaw.value = await componentsRaw[componentPath]();
+      } else {
+        Component.value = components[componentPath];
+        ComponentRaw.value = componentsRaw[componentPath];
+      }
       highlighterSignal.value = highlighter.codeToHtml(
         ComponentRaw.value || "",
         {

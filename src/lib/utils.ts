@@ -3,12 +3,9 @@ import { twMerge } from "tailwind-merge"
 import { getHighlighter, loadTheme } from "shiki";
 import path from "path";
 
- 
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-
 
 export const setHighlighter = async () => {
   const theme = await loadTheme(

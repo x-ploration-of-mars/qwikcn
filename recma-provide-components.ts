@@ -29,7 +29,7 @@ export const recmaProvideComponents: Plugin<any, Program> = () => {
            * to const MDXContent = _componentQrl(_inlinedQrl(function (props = {}) {...}, 'symbolName', []))
            * allows using Qwik hooks inside
            *  */
-          const symbolName = `${node.id.name || "mdx"}_${id++}`;
+          const symbolName = `${node.id?.name || "mdx"}_${id++}`;
           const declarations: VariableDeclarator[] = [
             {
               id: node.id,

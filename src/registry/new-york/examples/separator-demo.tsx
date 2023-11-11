@@ -10,12 +10,12 @@ export default component$(() => {
           An open-source UI component library.
         </p>
       </div>
-      <Separator class="my-4" />
+      <Separator />
       <div class="flex h-5 items-center space-x-4 text-sm">
         <div>Blog</div>
-        <Separator orientation="vertical" />
+        <Separator />
         <div>Docs</div>
-        <Separator orientation="vertical" />
+        <Separator />
         <div>Source</div>
       </div>
     </div>
