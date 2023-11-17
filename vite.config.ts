@@ -19,7 +19,29 @@ export default defineConfig(async () => {
     return await getHighlighter({ theme });
   };
 
+  let rollupOptions = {};
+
+  console.log(
+    "process.env.npm_lifecycle_event",
+    process.env.npm_lifecycle_event
+  );
+
+  if (process.env.npm_lifecycle_event === "build.client") {
+    // Client-specific configuration
+    rollupOptions = {
+      output: {
+        // Customize the client build structure
+        entryFileNames: `build/[name]-[hash].js`,
+        chunkFileNames: `build/[name]-[hash].js`,
+        assetFileNames: `build/[name]-[hash].[ext]`,
+      },
+    };
+  }
+
   return {
+    build: {
+      rollupOptions,
+    },
     preview: {
       headers: {
         "Cache-Control": "public, max-age=600",
