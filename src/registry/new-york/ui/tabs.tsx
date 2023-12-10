@@ -10,7 +10,9 @@ import {
 } from "@qwik-ui/headless";
 import { cn } from "~/lib/utils";
 
-const Tabs = QwikUITabs;
+const Tabs = (props:any) => {
+  return <QwikUITabs>{props.children}</QwikUITabs>;
+};
 
 const TabList = component$<TabListProps>((props) => {
   return (
